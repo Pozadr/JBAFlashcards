@@ -14,10 +14,10 @@
             <array>
               <option value="$MODULE_DIR$/../../../../Problems/First" />
               <option value=" second" />
-              <option value=" third/build/classes/kotlin/main" />
+              <option value=" third/build/classes/java/main" />
               <option value="$MODULE_DIR$/../../../../Problems/First" />
               <option value=" second" />
-              <option value=" third/build/classes/java/main" />
+              <option value=" third/build/classes/kotlin/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />

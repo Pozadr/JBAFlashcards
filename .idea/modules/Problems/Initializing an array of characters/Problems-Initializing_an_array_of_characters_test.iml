@@ -12,8 +12,8 @@
           <option name="moduleName" value="Problems-Initializing_an_array_of_characters" />
           <option name="friendPaths">
             <array>
-              <option value="$MODULE_DIR$/../../../../Problems/Initializing an array of characters/build/classes/kotlin/main" />
               <option value="$MODULE_DIR$/../../../../Problems/Initializing an array of characters/build/classes/java/main" />
+              <option value="$MODULE_DIR$/../../../../Problems/Initializing an array of characters/build/classes/kotlin/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />

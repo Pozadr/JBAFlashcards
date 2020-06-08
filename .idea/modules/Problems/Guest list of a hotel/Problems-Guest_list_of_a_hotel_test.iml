@@ -12,8 +12,8 @@
           <option name="moduleName" value="Problems-Guest_list_of_a_hotel" />
           <option name="friendPaths">
             <array>
-              <option value="$MODULE_DIR$/../../../../Problems/Guest list of a hotel/build/classes/kotlin/main" />
               <option value="$MODULE_DIR$/../../../../Problems/Guest list of a hotel/build/classes/java/main" />
+              <option value="$MODULE_DIR$/../../../../Problems/Guest list of a hotel/build/classes/kotlin/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />

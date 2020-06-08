@@ -12,8 +12,8 @@
           <option name="moduleName" value="Problems-Printing_only_the_longest_line" />
           <option name="friendPaths">
             <array>
-              <option value="$MODULE_DIR$/../../../../Problems/Printing only the longest line/build/classes/java/main" />
               <option value="$MODULE_DIR$/../../../../Problems/Printing only the longest line/build/classes/kotlin/main" />
+              <option value="$MODULE_DIR$/../../../../Problems/Printing only the longest line/build/classes/java/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />

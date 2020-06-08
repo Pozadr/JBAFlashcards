@@ -12,8 +12,8 @@
           <option name="moduleName" value="Problems-Project_constants_and_methods" />
           <option name="friendPaths">
             <array>
-              <option value="$MODULE_DIR$/../../../../Problems/Project constants and methods/build/classes/java/main" />
               <option value="$MODULE_DIR$/../../../../Problems/Project constants and methods/build/classes/kotlin/main" />
+              <option value="$MODULE_DIR$/../../../../Problems/Project constants and methods/build/classes/java/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />

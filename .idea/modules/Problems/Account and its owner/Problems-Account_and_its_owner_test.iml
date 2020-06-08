@@ -12,8 +12,8 @@
           <option name="moduleName" value="Problems-Account_and_its_owner" />
           <option name="friendPaths">
             <array>
-              <option value="$MODULE_DIR$/../../../../Problems/Account and its owner/build/classes/java/main" />
               <option value="$MODULE_DIR$/../../../../Problems/Account and its owner/build/classes/kotlin/main" />
+              <option value="$MODULE_DIR$/../../../../Problems/Account and its owner/build/classes/java/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />

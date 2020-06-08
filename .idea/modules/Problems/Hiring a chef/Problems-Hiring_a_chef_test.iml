@@ -12,8 +12,8 @@
           <option name="moduleName" value="Problems-Hiring_a_chef" />
           <option name="friendPaths">
             <array>
-              <option value="$MODULE_DIR$/../../../../Problems/Hiring a chef/build/classes/java/main" />
               <option value="$MODULE_DIR$/../../../../Problems/Hiring a chef/build/classes/kotlin/main" />
+              <option value="$MODULE_DIR$/../../../../Problems/Hiring a chef/build/classes/java/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />

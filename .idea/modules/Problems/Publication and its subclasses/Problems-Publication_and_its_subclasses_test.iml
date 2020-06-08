@@ -12,8 +12,8 @@
           <option name="moduleName" value="Problems-Publication_and_its_subclasses" />
           <option name="friendPaths">
             <array>
-              <option value="$MODULE_DIR$/../../../../Problems/Publication and its subclasses/build/classes/kotlin/main" />
               <option value="$MODULE_DIR$/../../../../Problems/Publication and its subclasses/build/classes/java/main" />
+              <option value="$MODULE_DIR$/../../../../Problems/Publication and its subclasses/build/classes/kotlin/main" />
             </array>
           </option>
           <option name="languageVersion" value="1.3" />
