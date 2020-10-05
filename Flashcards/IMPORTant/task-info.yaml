@@ -432,21 +432,21 @@ files:
 
                             val hint = "The asked card was `$askedCard`, the answer was `$ansDef`."
                             if (cardToDef[askedCard] == ansDef)
-                                containing("Correct answer", hint = hint).checker(text, ctx)
+                                containing("Correct", hint = hint).checker(text, ctx)
                             else {
                                 ctx.wrongCards += askedCard
 
                                 val isDefFor = defToCard[ansDef]
                                 if (isDefFor != null) {
-                                    containing("Wrong answer", "The correct one is \"$rightAns\"",
-                                            "you've just written the definition of \"$isDefFor\"", hint = hint).checker(text, ctx)
+                                    containing("Wrong", "The right answer is \"$rightAns\"",
+                                            "but your definition is correct for \"$isDefFor\"", hint = hint).checker(text, ctx)
                                 } else {
                                     // should not contain definition hint!!
-                                    if (text.contains("you've just written the definition of")) {
+                                    if (text.contains("but your definition is correct for")) {
                                         CheckResult.wrong("Your line\n`$text`\nshould NOT contain " +
-                                                "`you've just written the definition of`.\n$hint")
+                                                "`but your definition is correct for`.\n$hint")
                                     } else {
-                                        containing("Wrong answer", "The correct one is \"$rightAns\"", hint = hint).checker(text, ctx)
+                                        containing("Wrong", "The right answer is \"$rightAns\"", hint = hint).checker(text, ctx)
                                     }
 
                                 }

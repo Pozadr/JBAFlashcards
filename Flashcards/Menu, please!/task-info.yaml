@@ -275,19 +275,19 @@ files:
     \                        val rightAns = cardToDef[askedCard]\n\n             \
     \           val hint = \"The asked card was `$askedCard`, the answer was `$ansDef`.\"\
     \n                        if (cardToDef[askedCard] == ansDef)\n              \
-    \              containing(\"Correct answer\", hint = hint).checker(text, ctx)\n\
-    \                        else {\n                            val isDefFor = defToCard[ansDef]\n\
+    \              containing(\"Correct\", hint = hint).checker(text, ctx)\n     \
+    \                   else {\n                            val isDefFor = defToCard[ansDef]\n\
     \                            if (isDefFor != null) {\n                       \
-    \         containing(\"Wrong answer\", \"The correct one is \\\"$rightAns\\\"\"\
-    ,\n                                        \"you've just written the definition\
-    \ of \\\"$isDefFor\\\"\", hint = hint).checker(text, ctx)\n                  \
-    \          } else {\n                                // should not contain definition\
-    \ hint!!\n                                if (text.contains(\"you've just written\
-    \ the definition of\")) {\n                                    CheckResult.wrong(\"\
+    \         containing(\"Wrong\", \"The right answer is \\\"$rightAns\\\"\",\n \
+    \                                       \"but your definition is correct for \\\
+    \"$isDefFor\\\"\", hint = hint).checker(text, ctx)\n                         \
+    \   } else {\n                                // should not contain definition\
+    \ hint!!\n                                if (text.contains(\"but your definition\
+    \ is correct for\")) {\n                                    CheckResult.wrong(\"\
     Your line\\n`$text`\\nshould NOT contain \" +\n                              \
-    \              \"`you've just written the definition of`.\\n$hint\")\n       \
-    \                         } else {\n                                    containing(\"\
-    Wrong answer\", \"The correct one is \\\"$rightAns\\\"\", hint = hint).checker(text,\
+    \              \"`but your definition is correct for`.\\n$hint\")\n          \
+    \                      } else {\n                                    containing(\"\
+    Wrong\", \"The right answer is \\\"$rightAns\\\"\", hint = hint).checker(text,\
     \ ctx)\n                                }\n                                \n\
     \                            }\n                        }\n                  \
     \  }\n            )\n        }\n        (startPhrases + repeatingPhrases)\n  \

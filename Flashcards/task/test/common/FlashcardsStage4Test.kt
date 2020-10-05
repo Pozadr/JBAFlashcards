@@ -58,7 +58,7 @@ abstract class FlashcardsStage4Test : StageTest<DialogClue>(Main::class.java) {
     /** Asks with a correct answer. */
     private fun askCorrect(quest: String, userAns: String) = compositePhrase {
         listOf(containing("\"$quest\"", hint = "This line should ask the definition of `$quest`."),
-                user(userAns), containing("Correct answer"))
+                user(userAns), containing("Correct!"))
     }
 
     /** Asks with a wrong answer. */
@@ -67,10 +67,10 @@ abstract class FlashcardsStage4Test : StageTest<DialogClue>(Main::class.java) {
                 containing("\"$quest\"", hint = "This line should ask the definition of `$quest`."),
                 user(userAns))
         if (isDefFor == null) {
-            result += containing("Wrong answer", "The correct one is \"$rightAns\"")
+            result += containing("Wrong", "The right answer is \"$rightAns\"")
         } else {
-            result += containing("Wrong answer", "The correct one is \"$rightAns\"",
-                    "you've just written the definition of \"$isDefFor\"")
+            result += containing("Wrong", "The right answer is \"$rightAns\"",
+                    "but your definition is correct for \"$isDefFor\"")
         }
         result
     }

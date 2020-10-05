@@ -6,18 +6,25 @@ hyperskill_project:
 stages:
 - id: 232
   step: 5343
+  is_completed: true
 - id: 233
   step: 5344
+  is_completed: true
 - id: 234
   step: 5345
+  is_completed: true
 - id: 235
   step: 5346
+  is_completed: false
 - id: 236
   step: 5347
+  is_completed: false
 - id: 237
   step: 5348
+  is_completed: false
 - id: 238
   step: 5349
+  is_completed: false
 topics:
   0:
   - title: Introduction to Java
@@ -60,6 +67,8 @@ topics:
     theory_id: 5035
   - title: Array
     theory_id: 3511
+  - title: Ternary operator
+    theory_id: 3506
   - title: The for-loop
     theory_id: 3505
   - title: The while and do-while loops
@@ -83,12 +92,12 @@ topics:
     theory_id: 7929
   - title: Computer algorithms
     theory_id: 4953
+  - title: Introducing the first algorithm
+    theory_id: 10336
   - title: The big O notation
     theory_id: 4991
   - title: Data structures
     theory_id: 5161
-  - title: Binary numbers
-    theory_id: 5544
   - title: What is an exception
     theory_id: 3497
   - title: Hierarchy of exceptions
@@ -107,6 +116,10 @@ topics:
     theory_id: 3624
   - title: Set
     theory_id: 3575
+  - title: 'Hashing: overview'
+    theory_id: 9831
+  - title: Hash table
+    theory_id: 5364
   - title: Map
     theory_id: 3558
   - title: Sizes and ranges
@@ -115,8 +128,6 @@ topics:
     theory_id: 3510
   - title: Final variables
     theory_id: 7427
-  - title: Ternary operator
-    theory_id: 3506
   - title: Defining methods
     theory_id: 3590
   - title: Overloading
@@ -162,8 +173,6 @@ topics:
   - title: Boxing and unboxing
     theory_id: 3595
   4:
-  - title: Computer programming
-    theory_id: 8739
   - title: Introduction to operating systems
     theory_id: 9704
   - title: Command line overview
@@ -183,10 +192,6 @@ topics:
   - title: Running programs on your computer
     theory_id: 3746
   5:
-  - title: Pseudocode basics
-    theory_id: 8228
-  - title: Complex constructions in pseudocode
-    theory_id: 8233
   - title: Fixed-size array
     theory_id: 7255
   - title: Dynamic array
@@ -200,3 +205,5 @@ topics:
     theory_id: 3594
   - title: Command-line arguments
     theory_id: 3566
+  - title: IntelliJ Run Configurations
+    theory_id: 10630

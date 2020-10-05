@@ -66,3 +66,5 @@ content:
 - Publications
 - Find mistake
 - Publication and its subclasses
+- Avoid NPE
+- Return empty string when argument is null

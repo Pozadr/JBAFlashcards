@@ -1,49 +1,51 @@
 <h2 style="text-align: center;">Description</h2>
 
-<p>We cannot play Flashcards with only one card, right? Let's make our program dynamic! Implement a custom card creation mechanism. Read a <em>term</em> and a <em>definition</em> from the console and create a card.</p>
+<p>Of course, we cannot use flashcards with only one hardcoded card. So let's make our program more dynamic! Let’s create flashcards depending on the user's input and add a primitive guessing mechanism so that the user can check how well they remember the definitions.</p>
 
-<p>After that, a user inputs a line as an <strong>answer</strong> (a definition of the card). Compare the user's answer to the correct definition and print the verdict.</p>
+<p>In this stage, you need to implement a custom flashcard-creation mechanism, which will be used extensively in later stages, and add a mechanism to check the user's answer.</p>
 
-<h2 style="text-align: center;">How to submit?</h2>
+<h2 style="text-align: center;">Objectives</h2>
 
-<p>This stage is auto-graded. The grader will input 3 lines (term, definition, answer) and check that your output contains a word:</p>
+<p>Your program should read two lines from the console, a <em>term,</em> and a <em>definition,</em> and create a card for this pair.</p>
+
+<p>After that, the user inputs a line as an <em>answer</em> (a definition of the term on the card). Compare the user's answer with the correct definition and print the result. </p>
+
+<p>The output of the program must contain one of two words:</p>
 
 <ul>
-	<li><code class="java">wrong</code> if the answer isn't equal to the definition,</li>
-	<li><code class="java">right</code> if the answer is equal to the definition.</li>
+	<li><code class="java">wrong</code> if the answer doesn't match the definition;</li>
+	<li><code class="java">right</code> if the answer matches the definition.</li>
 </ul>
 
-<p> </p>
-
-<p>Again, here are some examples to clarify the stage.</p>
+<p>Of course, at this point, the user is unlikely to get the answer wrong, since they’re the ones who just typed in the answer... But don’t worry: right now we're just warming up so that in later stages we could make this a bit more challenging for our users.</p>
 
 <h2 style="text-align: center;">Examples</h2>
 
-<p>Note that in our example "a purring animal" is actually a term, while a "cat" is a definition because it makes more sense to use these flashcards for guessing the animal by its features. We hope this little confusion will help you in learning the formal meanings of the words term and definition.</p>
+<p>The greater-than symbol followed by space (<code class="java">&gt; </code>) represents the user input. Notice that it's not the part of the input.</p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong>Example 1: </strong><em>the user's answer is correct</em></p>
 
-<p>Input</p>
+<p>Input (a term, a definition, an answer):</p>
 
-<pre><code class="language-no-highlight">a purring animal
-cat
-cat
+<pre><code class="language-no-highlight">&gt; print()
+&gt; outputs text
+&gt; outputs text
 </code></pre>
 
-<p>Output</p>
+<p>Output:</p>
 
 <pre><code class="language-no-highlight">Your answer is right!
 </code></pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>Example 2: </strong><em>the user's answer is incorrect</em></p>
 
-<p>Input</p>
+<p>Input (a term, a definition, an answer):</p>
 
-<pre><code class="language-no-highlight">a barking animal
-dog
-cat
+<pre><code class="language-no-highlight">&gt; Jetbrains
+&gt; A place for people who love to code
+&gt; A place for people who hate to code
 </code></pre>
 
-<p>Output</p>
+<p>Output:</p>
 
 <pre><code class="language-no-highlight">Your answer is wrong...</code></pre>

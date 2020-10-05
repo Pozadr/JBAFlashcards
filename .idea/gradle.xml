@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/Problems/Account and its owner" />
             <option value="$PROJECT_DIR$/Problems/Arithmetic average" />
             <option value="$PROJECT_DIR$/Problems/Army" />
+            <option value="$PROJECT_DIR$/Problems/Avoid NPE" />
             <option value="$PROJECT_DIR$/Problems/Bank account" />
             <option value="$PROJECT_DIR$/Problems/Binary search" />
             <option value="$PROJECT_DIR$/Problems/Book" />
@@ -59,6 +60,7 @@
             <option value="$PROJECT_DIR$/Problems/Publication and its subclasses" />
             <option value="$PROJECT_DIR$/Problems/Publications" />
             <option value="$PROJECT_DIR$/Problems/Replacing 'a' with 'b'" />
+            <option value="$PROJECT_DIR$/Problems/Return empty string when argument is null" />
             <option value="$PROJECT_DIR$/Problems/Reverse input text" />
             <option value="$PROJECT_DIR$/Problems/Right Rotation" />
             <option value="$PROJECT_DIR$/Problems/Saying animals" />
