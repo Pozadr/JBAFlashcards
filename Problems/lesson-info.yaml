@@ -70,3 +70,6 @@ content:
 - Return empty string when argument is null
 - Only true or false
 - Safe converting
+- Pastry packing optimization
+- Boxes are not just objects!
+- Squares list
