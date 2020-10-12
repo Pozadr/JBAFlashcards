@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/Problems/Convert to bytes" />
             <option value="$PROJECT_DIR$/Problems/Count words" />
             <option value="$PROJECT_DIR$/Problems/Digits from 0 to 9 in a single line" />
+            <option value="$PROJECT_DIR$/Problems/Displaying pairs" />
             <option value="$PROJECT_DIR$/Problems/Division" />
             <option value="$PROJECT_DIR$/Problems/Employee" />
             <option value="$PROJECT_DIR$/Problems/Employees" />
@@ -50,6 +51,7 @@
             <option value="$PROJECT_DIR$/Problems/Initializing an array of longs" />
             <option value="$PROJECT_DIR$/Problems/Inner boxes" />
             <option value="$PROJECT_DIR$/Problems/Movie" />
+            <option value="$PROJECT_DIR$/Problems/Multiset" />
             <option value="$PROJECT_DIR$/Problems/Only true or false" />
             <option value="$PROJECT_DIR$/Problems/Output elements" />
             <option value="$PROJECT_DIR$/Problems/Pastry packing optimization" />
@@ -71,6 +73,7 @@
             <option value="$PROJECT_DIR$/Problems/Safe converting" />
             <option value="$PROJECT_DIR$/Problems/Saying animals" />
             <option value="$PROJECT_DIR$/Problems/Shapes area" />
+            <option value="$PROJECT_DIR$/Problems/Sherlock Holmes and removing of characters" />
             <option value="$PROJECT_DIR$/Problems/Simulating a clock" />
             <option value="$PROJECT_DIR$/Problems/Size of parts" />
             <option value="$PROJECT_DIR$/Problems/Spell checker" />
