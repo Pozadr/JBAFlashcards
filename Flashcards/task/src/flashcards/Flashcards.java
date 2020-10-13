@@ -13,6 +13,10 @@ public class Flashcards {
         flashcards.put(term, definition);
     }
 
+    public void removeFlashcard(String term) {
+        flashcards.remove(term);
+    }
+
     public boolean isTermExist(String term) {
         return flashcards.containsKey(term);
     }
