@@ -80,7 +80,8 @@ public class UI {
     private void importFlashcards() {
         System.out.println("File name:");
         String pathToFile = scanner.nextLine().trim();
-        FileFlashcards file = new FileFlashcards("./Flashcards/task/DB_Flashcards/" + pathToFile);
+        FileFlashcards file = new FileFlashcards("./Flashcards/task/DB_Flashcards/" + pathToFile, flashcards);
+        flashcards.printFlashcards();
     }
 
     private void getAnswers() {

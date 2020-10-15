@@ -5,13 +5,17 @@ import java.util.*;
 public class Flashcards {
     private final Map<String, String> flashcards = new HashMap<>();
 
-    public void printFlashcards() {
-        flashcards.forEach((term, definition) -> System.out.println(term + ": " + definition));
-    }
-
     public void addFlashcard(String term, String definition) {
         flashcards.put(term, definition);
     }
+
+    public void readFlashcardsFromFileDB(Map<String, String> fileDBHashMap) {
+        for (String term : fileDBHashMap.keySet()) {
+            flashcards.put(term, fileDBHashMap.get(term));
+        }
+    }
+
+
 
     public void removeFlashcard(String term) {
         flashcards.remove(term);
@@ -45,5 +49,9 @@ public class Flashcards {
     }
     public String getFlashcardDefinition(String key) {
         return flashcards.get(key);
+    }
+    public void printFlashcards() {
+        System.out.println("Current loaded flashcards:");
+        flashcards.forEach((term, definition) -> System.out.println(term + ": " + definition));
     }
 }

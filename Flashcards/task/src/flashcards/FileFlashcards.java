@@ -7,35 +7,40 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FileFlashcards {
-    private Map<String, String> fileFlashcards = new HashMap<>();
+    private final Map<String, String> flashcardsFromFile = new HashMap<>();
     private Scanner scanner;
-    private File file;
 
-    public FileFlashcards(String path) {
-        this.file = new File(path);
+    public FileFlashcards(String path, Flashcards flashcards) {
+
+        File file = new File(path);
         try {
             this.scanner = new Scanner(file); // it throws FileNotFoundException (checked)
-            System.out.println(scanner.nextLine());
         } catch (FileNotFoundException e) {
             System.out.println("File not found.\n");
         }
         readFlashcardsFromFile();
-        printFileFlashcards();
+        flashcards.readFlashcardsFromFileDB(flashcardsFromFile);
 
     }
 
     private void readFlashcardsFromFile() {
+        int lineCounter = 0;
         while (scanner.hasNext()) {
             String[] line = scanner.nextLine().trim().split(":");
+            lineCounter++;
             String term = line[0];
             String definition = line[1];
-            fileFlashcards.put(term, definition);
+            flashcardsFromFile.put(term, definition);
         }
+        System.out.println(lineCounter + " cards have been loaded.\n");
     }
 
-    private void printFileFlashcards() {
-        fileFlashcards.forEach((term, definition) -> System.out.println(term + ":" + definition));
+    private void printFlashcardsFromFile() {
+        System.out.println("Flashcards from file:");
+        flashcardsFromFile.forEach((term, definition) -> System.out.println(term + ":" + definition));
     }
+
+
 
 
 
