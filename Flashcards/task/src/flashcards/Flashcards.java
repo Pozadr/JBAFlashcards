@@ -15,8 +15,6 @@ public class Flashcards {
         }
     }
 
-
-
     public void removeFlashcard(String term) {
         flashcards.remove(term);
     }
@@ -44,12 +42,15 @@ public class Flashcards {
     public Set<String> getFlashcardsTerms() {
         return new HashSet<>(flashcards.keySet());
     }
+
     public Set<String> getFlashcardsDefinitions() {
         return new HashSet<>(flashcards.values());
     }
+
     public String getFlashcardDefinition(String key) {
         return flashcards.get(key);
     }
+
     public void printFlashcards() {
         System.out.println("Current loaded flashcards:");
         flashcards.forEach((term, definition) -> System.out.println(term + ": " + definition));

@@ -1,5 +1,6 @@
 package flashcards;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class UI {
@@ -27,11 +28,11 @@ public class UI {
                     break;
                 }
                 case "export": {
-                    System.out.println("export");
+                    exportFlashcards();
                     break;
                 }
                 case "ask": {
-                    System.out.println("ask");
+                    askUser();
                     break;
                 }
                 case "exit": {
@@ -43,7 +44,6 @@ public class UI {
             }
         } while (!userInput.equals("exit"));
     }
-
 
     private void addFlashcard() {
         // Term
@@ -80,11 +80,20 @@ public class UI {
     private void importFlashcards() {
         System.out.println("File name:");
         String pathToFile = scanner.nextLine().trim();
-        FileFlashcards file = new FileFlashcards("./Flashcards/task/DB_Flashcards/" + pathToFile, flashcards);
+        flashcards.readFlashcardsFromFileDB(FileFlashcards
+                .readFlashcardsFromFile("./Flashcards/task/DB_Flashcards/" + pathToFile));
+
         flashcards.printFlashcards();
     }
 
-    private void getAnswers() {
+    private void exportFlashcards() {
+        System.out.println("File name:");
+        String pathToFile = scanner.nextLine().trim();
+        FileFlashcards.writeFlashcardsToFile("./Flashcards/task/DB_Flashcards/" + pathToFile, flashcards);
+
+    }
+
+    private void askUser() {
         // Get answers
         for (String term : flashcards.getFlashcardsTerms()) {
             System.out.println("Print the definition of \"" + term + "\":");

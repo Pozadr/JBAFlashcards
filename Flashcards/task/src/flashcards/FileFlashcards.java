@@ -1,41 +1,50 @@
 package flashcards;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class FileFlashcards {
-    private final Map<String, String> flashcardsFromFile = new HashMap<>();
-    private Scanner scanner;
 
-    public FileFlashcards(String path, Flashcards flashcards) {
-
+    public static Map<String, String> readFlashcardsFromFile(String path) {
+        Scanner scanner;
+        Map<String, String> flashcardsFromFile = new HashMap<>();
         File file = new File(path);
+
         try {
-            this.scanner = new Scanner(file); // it throws FileNotFoundException (checked)
+            scanner = new Scanner(file); // it throws FileNotFoundException (checked)
+            int lineCounter = 0;
+            while (scanner.hasNext()) {
+                String[] line = scanner.nextLine().trim().split(":");
+                lineCounter++;
+                String term = line[0];
+                String definition = line[1];
+                flashcardsFromFile.put(term, definition);
+            }
+            System.out.println(lineCounter + " cards have been loaded.\n");
         } catch (FileNotFoundException e) {
             System.out.println("File not found.\n");
         }
-        readFlashcardsFromFile();
-        flashcards.readFlashcardsFromFileDB(flashcardsFromFile);
-
+        return flashcardsFromFile;
     }
 
-    private void readFlashcardsFromFile() {
+    public static void writeFlashcardsToFile(String path, Flashcards flashcards) {
+        File file = new File(path);
         int lineCounter = 0;
-        while (scanner.hasNext()) {
-            String[] line = scanner.nextLine().trim().split(":");
-            lineCounter++;
-            String term = line[0];
-            String definition = line[1];
-            flashcardsFromFile.put(term, definition);
+
+        try (PrintWriter printWriter = new PrintWriter(file)) {
+            for(String term : flashcards.getFlashcardsTerms()) {
+                printWriter.printf("%s:%s\n", term, flashcards.getFlashcardDefinition(term));
+                lineCounter++;
+            }
+            System.out.println(lineCounter + " cards have been saved.\n");
+        } catch (IOException e) {
+            System.out.printf("An exception occurs %s", e.getMessage());
         }
-        System.out.println(lineCounter + " cards have been loaded.\n");
     }
 
-    private void printFlashcardsFromFile() {
+    private static void printFlashcardsFromFile(Map<String, String> flashcardsFromFile) {
         System.out.println("Flashcards from file:");
         flashcardsFromFile.forEach((term, definition) -> System.out.println(term + ":" + definition));
     }

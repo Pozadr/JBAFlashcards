@@ -436,6 +436,9 @@ files:
 - name: DB_Flashcards/capitals.txt
   visible: true
   learner_created: true
+- name: DB_Flashcards/test.txt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/44/stages/236/implement
 status: Unchecked
 record: -1
