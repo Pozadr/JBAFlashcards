@@ -1,0 +1,4 @@
+France:Paris
+Germany:Berlin
+Poland:Warsaw
+

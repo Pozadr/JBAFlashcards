@@ -23,7 +23,7 @@ public class UI {
                     break;
                 }
                 case "import": {
-                    System.out.println("import");
+                    importFlashcards();
                     break;
                 }
                 case "export": {
@@ -75,6 +75,12 @@ public class UI {
         } else {
             System.out.println("Can't remove \"" + term + "\": there is no such card.\n");
         }
+    }
+
+    private void importFlashcards() {
+        System.out.println("File name:");
+        String pathToFile = scanner.nextLine().trim();
+        FileFlashcards file = new FileFlashcards("./Flashcards/task/DB_Flashcards/" + pathToFile);
     }
 
     private void getAnswers() {

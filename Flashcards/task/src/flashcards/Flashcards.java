@@ -3,7 +3,7 @@ package flashcards;
 import java.util.*;
 
 public class Flashcards {
-    private final Map<String, String> flashcards = new LinkedHashMap<>();
+    private final Map<String, String> flashcards = new HashMap<>();
 
     public void printFlashcards() {
         flashcards.forEach((term, definition) -> System.out.println(term + ": " + definition));
@@ -33,12 +33,12 @@ public class Flashcards {
                 }
             }
         }
-        return "Definition not exists in flashcards.";
-
+        System.out.println( "Definition not exists in flashcards.");
+        return "";
     }
 
     public Set<String> getFlashcardsTerms() {
-        return new LinkedHashSet<>(flashcards.keySet());
+        return new HashSet<>(flashcards.keySet());
     }
     public Set<String> getFlashcardsDefinitions() {
         return new HashSet<>(flashcards.values());
