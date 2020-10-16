@@ -1,4 +1,10 @@
 France:Paris
 Germany:Berlin
 Poland:Warsaw
-
+Slovakia:Bratislava
+Czech Republic:Prague
+Russia:Moscow
+Croatia:Zagreb
+Austria:Vienna
+Switzerland:Bern
+England:London

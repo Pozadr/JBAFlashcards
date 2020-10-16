@@ -470,6 +470,441 @@ files:
         // just empty class, but not abstract so it can be run
     }
   learner_created: false
+- name: src/flashcards/Main.java
+  visible: true
+  text: |
+    package flashcards;
+
+    public class Main {
+        public static void main(String[] args) {
+            UI userInterface = new UI();
+            userInterface.menuLoop();
+        }
+    }
+  learner_created: true
+- name: src/flashcards/Flashcards.java
+  visible: true
+  text: |
+    package flashcards;
+
+    import java.util.*;
+
+    public class Flashcards {
+        private final Map<String, String> flashcards = new HashMap<>();
+
+        public void addFlashcard(String term, String definition) {
+            flashcards.put(term, definition);
+        }
+
+        public void readFlashcardsFromFileDB(Map<String, String> fileDBHashMap) {
+            for (String term : fileDBHashMap.keySet()) {
+                flashcards.put(term, fileDBHashMap.get(term));
+            }
+        }
+
+        public void removeFlashcard(String term) {
+            flashcards.remove(term);
+        }
+
+        public boolean isTermExist(String term) {
+            return flashcards.containsKey(term);
+        }
+
+        public boolean isDefinitionExist(String definition) {
+            return flashcards.containsValue(definition);
+        }
+
+        public String getTermToDefinition(String definition) {
+            if (isDefinitionExist(definition)) {
+                for (String term : getFlashcardsTerms()) {
+                    if (flashcards.get(term).equals(definition)) {
+                        return term;
+                    }
+                }
+            }
+            System.out.println( "Definition not exists in flashcards.");
+            return "";
+        }
+
+        public Set<String> getFlashcardsTerms() {
+            return new HashSet<>(flashcards.keySet());
+        }
+
+        public Set<String> getFlashcardsDefinitions() {
+            return new HashSet<>(flashcards.values());
+        }
+
+        public String getFlashcardDefinition(String key) {
+            return flashcards.get(key);
+        }
+
+        public void printFlashcards() {
+            System.out.println("Current loaded flashcards:");
+            flashcards.forEach((term, definition) -> System.out.println(term + ": " + definition));
+        }
+    }
+  learner_created: true
+- name: capitals.txt
+  visible: true
+  text: |
+    Great Britain:London
+  learner_created: true
+- name: DB_Flashcards/test.txt
+  visible: true
+  learner_created: true
+- name: capitalsNew.txt
+  visible: true
+  text: |
+    France:Paris
+  learner_created: true
+- name: src/flashcards/UI.java
+  visible: true
+  text: |
+    package flashcards;
+
+    import com.sun.source.util.SimpleTreeVisitor;
+
+    import java.io.File;
+    import java.util.Random;
+    import java.util.Scanner;
+
+    public class UI {
+        private final Scanner scanner = new Scanner(System.in);
+
+        Flashcards flashcards = new Flashcards();
+
+
+        public void menuLoop() {
+            String userInput;
+            do {
+                System.out.println("Input the action (add, remove, import, export, ask, exit):");
+                userInput = scanner.nextLine().trim();
+                switch (userInput) {
+                    case "add": {
+                        addFlashcard();
+                        break;
+                    }
+                    case "remove": {
+                        removeFlashcard();
+                        break;
+                    }
+                    case "import": {
+                        importFlashcards();
+                        break;
+                    }
+                    case "export": {
+                        exportFlashcards();
+                        break;
+                    }
+                    case "ask": {
+                        askUser();
+                        break;
+                    }
+                    case "exit": {
+                        System.out.println("Bye bye!");
+                        break;
+                    }
+                    default:
+                        System.out.println("Wrong input try again!");
+                }
+            } while (!userInput.equals("exit"));
+        }
+
+        private void addFlashcard() {
+            // Term
+            System.out.println("The card:");
+            String term = scanner.nextLine().trim();
+            if (flashcards.isTermExist(term)) {
+                System.out.println("The card \"" + term + "\" already exists.\n");
+                return;
+            }
+
+            // Definition
+            System.out.println("The definition for card:");
+            String definition = scanner.nextLine().trim();
+            if (flashcards.isDefinitionExist(definition)) {
+                System.out.println("The definition \"" + definition + "\" already exists.\n");
+                return;
+            }
+
+            flashcards.addFlashcard(term, definition);
+            System.out.println("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n");
+        }
+
+        private void removeFlashcard() {
+            System.out.println("The card:");
+            String term = scanner.nextLine().trim();
+            if (flashcards.isTermExist(term)) {
+                flashcards.removeFlashcard(term);
+                System.out.println("The card has been removed.\n");
+            } else {
+                System.out.println("Can't remove \"" + term + "\": there is no such card.\n");
+            }
+        }
+
+        private void importFlashcards() {
+            System.out.println("File name:");
+            String pathToFile = scanner.nextLine().trim();
+            flashcards.readFlashcardsFromFileDB(FileFlashcards
+                    .readFlashcardsFromFile(pathToFile)); // "./Flashcards/task/DB_Flashcards/" +
+        }
+
+        private void exportFlashcards() {
+            System.out.println("File name:");
+            String pathToFile = scanner.nextLine().trim();
+            FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
+
+        }
+
+        private void askUser() {
+            System.out.println("How many times to ask?");
+            int howManyQuestions;
+            try {
+                howManyQuestions = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Error: " + e.getMessage().toLowerCase());
+                return;
+            }
+            String[] terms = new String[flashcards.getFlashcardsTerms().size()];
+            int i = 0;
+            for (String term : flashcards.getFlashcardsTerms()) {
+                terms[i] = term;
+                i++;
+            }
+            Random random = new Random();
+            for (int j = 0; j < howManyQuestions; j++) {
+                int whichTerm = random.nextInt(terms.length);
+                //System.out.println(whichTerm);
+                System.out.println("Print the definition of \"" + terms[whichTerm] + "\":");
+                String userDefinition = scanner.nextLine().trim();
+                if (userDefinition.equals(flashcards.getFlashcardDefinition(terms[whichTerm]))) {
+                    System.out.println("Correct!");
+                } else if (flashcards.isDefinitionExist(userDefinition)) {
+                    String goodTerm = flashcards.getTermToDefinition(userDefinition);
+                    System.out.println("Wrong. The right answer is \"" +
+                            flashcards.getFlashcardDefinition(terms[whichTerm]) + "\"" +
+                            ", but your definition is correct for \"" + goodTerm + "\".");
+                } else {
+                    System.out.println("Wrong. The right answer is \"" +
+                            flashcards.getFlashcardDefinition(terms[whichTerm]) + "\"");
+                }
+            }
+
+
+
+        }
+
+
+
+
+    }
+  learner_created: true
+- name: src/flashcards/FileFlashcards.java
+  visible: true
+  text: |
+    package flashcards;
+
+    import java.io.*;
+    import java.util.HashMap;
+    import java.util.Map;
+    import java.util.Scanner;
+
+    public class FileFlashcards {
+
+        public static Map<String, String> readFlashcardsFromFile(String path) {
+            Scanner scanner;
+            Map<String, String> flashcardsFromFile = new HashMap<>();
+            File file = new File(path);
+
+            try {
+                scanner = new Scanner(file); // it throws FileNotFoundException (checked)
+                int lineCounter = 0;
+                while (scanner.hasNext()) {
+                    String[] line = scanner.nextLine().trim().split(":");
+                    lineCounter++;
+                    String term = line[0];
+                    String definition = line[1];
+                    flashcardsFromFile.put(term, definition);
+                }
+                System.out.println(lineCounter + " cards have been loaded.\n");
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found.\n");
+            }
+            return flashcardsFromFile;
+        }
+
+        public static void writeFlashcardsToFile(String path, Flashcards flashcards) {
+            File file = new File(path);
+            int lineCounter = 0;
+
+            try (PrintWriter printWriter = new PrintWriter(file)) {
+                for(String term : flashcards.getFlashcardsTerms()) {
+                    printWriter.printf("%s:%s\n", term, flashcards.getFlashcardDefinition(term));
+                    lineCounter++;
+                }
+                System.out.println(lineCounter + " cards have been saved.\n");
+            } catch (IOException e) {
+                System.out.println("An exception occurs: " + e.getMessage().toLowerCase() + "\n");
+            }
+        }
+
+        private static void printFlashcardsFromFile(Map<String, String> flashcardsFromFile) {
+            System.out.println("Flashcards from file:");
+            flashcardsFromFile.forEach((term, definition) -> System.out.println(term + ":" + definition));
+        }
+
+
+
+
+
+    }
+  learner_created: true
+- name: DB_Flashcards/capitals.txt
+  visible: true
+  text: |-
+    France:Paris
+    Germany:Berlin
+    Poland:Warsaw
+    Slovakia:Bratislava
+    Czech Republic:Prague
+    Russia:Moscow
+    Croatia:Zagreb
+    Austria:Vienna
+    Switzerland:Bern
+    England:London
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/44/stages/237/implement
-status: Unchecked
-record: -1
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #2
+
+    Your line
+    `Wrong input try again!`
+    should contain `There are no cards with errors` (ignoring case).
+
+    Please find below the output of your program during this failed test.
+    Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
+
+    ---
+
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; add
+    The card:
+    &gt; France
+    The definition for card:
+    &gt; Paris
+    The pair (&quot;France&quot;:&quot;Paris&quot;) has been added.
+
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; ask
+    How many times to ask?
+    &gt; 2
+    Print the definition of &quot;France&quot;:
+    &gt; France
+    Wrong. The right answer is &quot;Paris&quot;
+    Print the definition of &quot;France&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Paris&quot;
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; reset stats
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; add
+    The card:
+    &gt; Russia
+    The definition for card:
+    &gt; Moscow
+    The pair (&quot;Russia&quot;:&quot;Moscow&quot;) has been added.
+
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; ask
+    How many times to ask?
+    &gt; 2
+    Print the definition of &quot;Russia&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Moscow&quot;
+    Print the definition of &quot;France&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Paris&quot;
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; ask
+    How many times to ask?
+    &gt; 2
+    Print the definition of &quot;Russia&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Moscow&quot;
+    Print the definition of &quot;Russia&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Moscow&quot;
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; ask
+    How many times to ask?
+    &gt; 2
+    Print the definition of &quot;France&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Paris&quot;
+    Print the definition of &quot;France&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Paris&quot;
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; ask
+    How many times to ask?
+    &gt; 2
+    Print the definition of &quot;Russia&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Moscow&quot;
+    Print the definition of &quot;Russia&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Moscow&quot;
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; ask
+    How many times to ask?
+    &gt; 2
+    Print the definition of &quot;Russia&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Moscow&quot;
+    Print the definition of &quot;Russia&quot;:
+    &gt; ??
+    Wrong. The right answer is &quot;Moscow&quot;
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; hardest card
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; export
+    File name:
+    &gt; capitals.txt
+    2 cards have been saved.
+
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; log
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; testLog.txt
+    Wrong input try again!
+    Input the action (add, remove, import, export, ask, exit):
+    &gt; exit
+    Bye bye!
+  time: Fri, 16 Oct 2020 07:56:01 UTC
+record: 6

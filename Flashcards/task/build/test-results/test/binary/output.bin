@@ -1,85 +1,133 @@
 [1;31m
 Start test 1[0m
-Input the number of cards:
-> 2
-	Card #1:
-> black
-The definition for card #1:
-> white
-	Card #2:
-> black
-,The card "black" already exists. Try again:
-> red
-The definition for card #2:
-> white
-2The definition "white" already exists. Try again:
-> green
-!Print the definition of "black":
-> white
-	Correct!
-Print the definition of "red":
-> green
-	Correct!
+;Input the action (add, remove, import, export, ask, exit):
+	> export
+File name:
+> capitals.txt
+0 cards have been saved.
+
+;Input the action (add, remove, import, export, ask, exit):
+> exit
+	Bye bye!
 [1;31m
 Start test 2[0m
-Input the number of cards:
-> 2
-	Card #1:
-> a brother of one's parent
-The definition for card #1:
-> uncle
-	Card #2:
-5> a part of the body where the foot and the leg meet
-The definition for card #2:
-> ankle
-5Print the definition of "a brother of one's parent":
-> ankle
-}Wrong. The right answer is "uncle", but your definition is correct for "a part of the body where the foot and the leg meet".
-NPrint the definition of "a part of the body where the foot and the leg meet":
-> ???
-#Wrong. The right answer is "ankle"
-[1;31m
-Start test 3[0m
-Input the number of cards:
-> 4
-	Card #1:
-> c1
-The definition for card #1:
-> d1
-	Card #2:
-> c2
-The definition for card #2:
-> d2
-	Card #3:
-> c3
-The definition for card #3:
-> d3
-	Card #4:
-> c3
-)The card "c3" already exists. Try again:
-> c2
-)The card "c2" already exists. Try again:
-> c1
-)The card "c1" already exists. Try again:
-> c4
-The definition for card #4:
-> d2
-/The definition "d2" already exists. Try again:
-> d3
-/The definition "d3" already exists. Try again:
-> d1
-/The definition "d1" already exists. Try again:
-> d4
-Print the definition of "c1":
-> d1
-	Correct!
-Print the definition of "c2":
-> d1
-JWrong. The right answer is "d2", but your definition is correct for "c1".
-Print the definition of "c3":
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> add
 
-> d3 ddd3
- Wrong. The right answer is "d3"
-Print the definition of "c4":
-> ???
- Wrong. The right answer is "d4"
+The card:
+	> France
+The definition for card:
+> Paris
+,The pair ("France":"Paris") has been added.
+
+;Input the action (add, remove, import, export, ask, exit):
+> ask
+How many times to ask?
+> 2
+"Print the definition of "France":
+	> France
+#Wrong. The right answer is "Paris"
+"Print the definition of "France":
+> ??
+#Wrong. The right answer is "Paris"
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> reset stats
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> add
+
+The card:
+	> Russia
+The definition for card:
+	> Moscow
+-The pair ("Russia":"Moscow") has been added.
+
+;Input the action (add, remove, import, export, ask, exit):
+> ask
+How many times to ask?
+> 2
+"Print the definition of "Russia":
+> ??
+$Wrong. The right answer is "Moscow"
+"Print the definition of "France":
+> ??
+#Wrong. The right answer is "Paris"
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> ask
+How many times to ask?
+> 2
+"Print the definition of "Russia":
+> ??
+$Wrong. The right answer is "Moscow"
+"Print the definition of "Russia":
+> ??
+$Wrong. The right answer is "Moscow"
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> ask
+How many times to ask?
+> 2
+"Print the definition of "France":
+> ??
+#Wrong. The right answer is "Paris"
+"Print the definition of "France":
+> ??
+#Wrong. The right answer is "Paris"
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> ask
+How many times to ask?
+> 2
+"Print the definition of "Russia":
+> ??
+$Wrong. The right answer is "Moscow"
+"Print the definition of "Russia":
+> ??
+$Wrong. The right answer is "Moscow"
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> ask
+How many times to ask?
+> 2
+"Print the definition of "Russia":
+> ??
+$Wrong. The right answer is "Moscow"
+"Print the definition of "Russia":
+> ??
+$Wrong. The right answer is "Moscow"
+;Input the action (add, remove, import, export, ask, exit):
+> hardest card
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+	> export
+File name:
+> capitals.txt
+2 cards have been saved.
+
+;Input the action (add, remove, import, export, ask, exit):
+> log
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> testLog.txt
+Wrong input try again!
+;Input the action (add, remove, import, export, ask, exit):
+> exit
+	Bye bye!

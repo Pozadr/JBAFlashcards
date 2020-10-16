@@ -43,6 +43,16 @@ public class Flashcards {
         return new HashSet<>(flashcards.keySet());
     }
 
+    public String[] getFlashcardsTermsArray() {
+        String[] terms = new String[flashcards.size()];
+        int termIndex = 0;
+        for (String term : getFlashcardsTerms()) {
+            terms[termIndex] = term;
+            termIndex++;
+        }
+        return terms;
+    }
+
     public Set<String> getFlashcardsDefinitions() {
         return new HashSet<>(flashcards.values());
     }

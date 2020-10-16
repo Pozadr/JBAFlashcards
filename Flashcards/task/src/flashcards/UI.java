@@ -1,6 +1,9 @@
 package flashcards;
 
+import com.sun.source.util.SimpleTreeVisitor;
+
 import java.io.File;
+import java.util.Random;
 import java.util.Scanner;
 
 public class UI {
@@ -81,36 +84,52 @@ public class UI {
         System.out.println("File name:");
         String pathToFile = scanner.nextLine().trim();
         flashcards.readFlashcardsFromFileDB(FileFlashcards
-                .readFlashcardsFromFile("./Flashcards/task/DB_Flashcards/" + pathToFile));
-
-        flashcards.printFlashcards();
+                .readFlashcardsFromFile(pathToFile)); // "./Flashcards/task/DB_Flashcards/" +
     }
 
     private void exportFlashcards() {
         System.out.println("File name:");
         String pathToFile = scanner.nextLine().trim();
-        FileFlashcards.writeFlashcardsToFile("./Flashcards/task/DB_Flashcards/" + pathToFile, flashcards);
+        FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
 
     }
 
     private void askUser() {
-        // Get answers
-        for (String term : flashcards.getFlashcardsTerms()) {
-            System.out.println("Print the definition of \"" + term + "\":");
+        System.out.println("How many times to ask?");
+        int howManyQuestions;
+        try {  // input validation
+            howManyQuestions = Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e.getMessage().toLowerCase());
+            return;
+        }
+
+        // terms to String[] to use them with Random
+        String[] terms = flashcards.getFlashcardsTermsArray();
+
+        Random random = new Random();
+        for (int i = 0; i < howManyQuestions; i++) {
+            int randomTerm = random.nextInt(terms.length); // draw the random term
+            System.out.println("Print the definition of \"" + terms[randomTerm] + "\":");
             String userDefinition = scanner.nextLine().trim();
-            if (userDefinition.equals(flashcards.getFlashcardDefinition(term))) {
+            if (userDefinition.equals(flashcards.getFlashcardDefinition(terms[randomTerm]))) {
                 System.out.println("Correct!");
             } else if (flashcards.isDefinitionExist(userDefinition)) {
                 String goodTerm = flashcards.getTermToDefinition(userDefinition);
                 System.out.println("Wrong. The right answer is \"" +
-                        flashcards.getFlashcardDefinition(term) + "\"" +
+                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"" +
                         ", but your definition is correct for \"" + goodTerm + "\".");
             } else {
                 System.out.println("Wrong. The right answer is \"" +
-                        flashcards.getFlashcardDefinition(term) + "\"");
+                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"");
             }
         }
+
+
+
     }
+
+
 
 
 }

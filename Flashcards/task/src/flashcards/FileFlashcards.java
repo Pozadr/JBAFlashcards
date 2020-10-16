@@ -40,7 +40,7 @@ public class FileFlashcards {
             }
             System.out.println(lineCounter + " cards have been saved.\n");
         } catch (IOException e) {
-            System.out.printf("An exception occurs %s", e.getMessage());
+            System.out.println("An exception occurs: " + e.getMessage().toLowerCase() + "\n");
         }
     }
 
