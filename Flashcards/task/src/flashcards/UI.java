@@ -1,6 +1,5 @@
 package flashcards;
 
-import javax.swing.*;
 import java.util.*;
 
 public class UI {
@@ -12,11 +11,10 @@ public class UI {
     public void menuLoop() {
         String userInput;
         do {
-            System.out.println("Input the action (add, remove, import, export, ask," +
+            log.appendLogAndPrintToConsole("Input the action (add, remove, import, export, ask," +
                     " exit, log, hardest card, reset stats):");
-            log.appendLog("Input the action (add, remove, import, export, ask," +
-                    " exit, log, hardest card, reset stats):\n");
             userInput = scanner.nextLine().trim();
+            log.appendLog(userInput);
             switch (userInput) {
                 case "add": {
                     addFlashcard();
@@ -39,7 +37,7 @@ public class UI {
                     break;
                 }
                 case "exit": {
-                    System.out.println("Bye bye!");
+                    log.appendLogAndPrintToConsole("Bye bye!");
                     break;
                 }
                 case "log": {
@@ -55,8 +53,7 @@ public class UI {
                     break;
                 }
                 default:
-                    System.out.println("Wrong input try again!");
-                    log.appendLog("Wrong input try again!\n");
+                    log.appendLogAndPrintToConsole("Wrong input try again!");
             }
         } while (!userInput.equals("exit"));
     }
@@ -64,78 +61,63 @@ public class UI {
 
     private void addFlashcard() {
         // Term
-        System.out.println("The card:");
-        log.appendLog("The card:\n");
+        log.appendLogAndPrintToConsole("The card:");
         String term = scanner.nextLine().trim();
-        log.appendLog(term + "\n");
+        log.appendLog(term);
         if (flashcards.isTermExist(term)) {
-            System.out.println("The card \"" + term + "\" already exists.\n");
-            log.appendLog("The card \"" + term + "\" already exists.\n\n");
+            log.appendLogAndPrintToConsole("The card \"" + term + "\" already exists.\n");
             return;
         }
 
         // Definition
-        System.out.println("The definition for card:");
-        log.appendLog("The definition for card:\n");
+        log.appendLogAndPrintToConsole("The definition for card:");
         String definition = scanner.nextLine().trim();
-        log.appendLog(definition + "\n");
+        log.appendLog(definition);
         if (flashcards.isDefinitionExist(definition)) {
-            System.out.println("The definition \"" + definition + "\" already exists.\n");
-            log.appendLog("The definition \"" + definition + "\" already exists.\n\n");
+            log.appendLogAndPrintToConsole("The definition \"" + definition + "\" already exists.\n");
             return;
         }
 
         flashcards.addFlashcardUser(term, definition);
-        System.out.println("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n");
-        log.appendLog("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n\n");
+        log.appendLogAndPrintToConsole("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n");
     }
 
 
     private void removeFlashcard() {
-        System.out.println("The card:");
-        log.appendLog("The card:\n");
+        log.appendLogAndPrintToConsole("The card:");
         String term = scanner.nextLine().trim();
-        log.appendLog(term + "\n");
+        log.appendLog(term);
         if (flashcards.isTermExist(term)) {
             flashcards.removeFlashcard(term);
-            System.out.println("The card has been removed.\n");
-            log.appendLog("The card has been removed.\n\n");
+            log.appendLogAndPrintToConsole("The card has been removed.\n");
         } else {
-            System.out.println("Can't remove \"" + term + "\": there is no such card.\n");
-            log.appendLog("Can't remove \"" + term + "\": there is no such card.\n\n");
+            log.appendLogAndPrintToConsole("Can't remove \"" + term + "\": there is no such card.\n");
         }
     }
 
 
     private void importFlashcards() {
-        System.out.println("File name:");
-        log.appendLog("File name:\n");
+        log.appendLogAndPrintToConsole("File name:");
         String pathToFile = scanner.nextLine().trim();
-        log.appendLog(pathToFile + "\n");
+        log.appendLog(pathToFile);
         int lineCounter =FileFlashcards.readFlashcardsFromFile(pathToFile, flashcards); // "./Flashcards/task/DB_Flashcards/" +
-        System.out.println(lineCounter + " cards have been loaded.\n");
-        log.appendLog(lineCounter + " cards have been loaded.\n\n");
-
+        log.appendLogAndPrintToConsole(lineCounter + " cards have been loaded.\n");
     }
 
 
     private void exportFlashcards() {
-        System.out.println("File name:");
-        log.appendLog("File name:\n");
+        log.appendLogAndPrintToConsole("File name:");
         String pathToFile = scanner.nextLine().trim();
-        log.appendLog(pathToFile + "\n");
+        log.appendLog(pathToFile);
         int lineCounter = FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
-        System.out.println(lineCounter + " cards have been saved.\n");
-        log.appendLog(lineCounter + " cards have been saved.\n\n");
-
+        log.appendLogAndPrintToConsole(lineCounter + " cards have been saved.\n");
     }
 
 
     private void saveLog() {
-        System.out.println("File name:");
-        log.appendLog("File name:\n");
+        log.appendLogAndPrintToConsole("File name:");
         String pathToFile = scanner.nextLine().trim();
-        log.appendLog(pathToFile + "\n");
+        log.appendLog(pathToFile);
         log.writeLogToFile(pathToFile);
 
     }
@@ -159,21 +141,16 @@ public class UI {
                 sizeOfSet--;
             }
             if (hardestCards.size() == 1){
-                System.out.println("The hardest card is " + message + "You have " + highestScore +
+                log.appendLogAndPrintToConsole("The hardest card is " + message + "You have " + highestScore +
                         " errors answering it.\n");
-                log.appendLog("The hardest card is " + message + "You have " + highestScore +
-                        " errors answering it.\n\n");
             } else {
-                System.out.println("The hardest cards are " + message + "You have " + highestScore +
+                log.appendLogAndPrintToConsole("The hardest cards are " + message + "You have " + highestScore +
                         " errors answering it.\n");
-                log.appendLog("The hardest cards are " + message + "You have " + highestScore +
-                        " errors answering it.\n\n");
 
             }
 
         } catch (NoSuchElementException | NullPointerException e) {
-            System.out.println("There are no cards with errors.\n");
-            log.appendLog("There are no cards with errors.\n\n");
+            log.appendLogAndPrintToConsole("There are no cards with errors.\n");
         }
 
     }
@@ -181,22 +158,20 @@ public class UI {
 
     private void resetStats() {
         flashcards.resetStats();
-        System.out.println("Card statistics have been reset.\n");
-        log.appendLog("Card statistics have been reset.\n\n");
+        log.appendLogAndPrintToConsole("Card statistics have been reset.\n");
     }
 
 
     private void askUser() {
-        System.out.println("How many times to ask?");
-        log.appendLog("How many times to ask?\n");
+        log.appendLogAndPrintToConsole("How many times to ask?");
         int howManyQuestions;
         try {  // input validation
             howManyQuestions = Integer.parseInt(scanner.nextLine().trim());
         } catch (NumberFormatException e) {
-            System.out.println("Error: " + e.getMessage().toLowerCase());
+            log.appendLogAndPrintToConsole("Error: " + e.getMessage().toLowerCase());
             return;
         }
-        log.appendLog(howManyQuestions + "\n");
+        log.appendLog(Integer.toString(howManyQuestions));
 
         // terms to String[] to use them with Random
         String[] terms = flashcards.getFlashcardsTermsArray();
@@ -204,35 +179,28 @@ public class UI {
         Random random = new Random();
         for (int i = 0; i < howManyQuestions; i++) {
             int randomTerm = random.nextInt(terms.length); // draw the random term
-            System.out.println("Print the definition of \"" + terms[randomTerm] + "\":");
-            log.appendLog("Print the definition of \"" + terms[randomTerm] + "\":\n");
+            log.appendLogAndPrintToConsole("Print the definition of \"" + terms[randomTerm] + "\":");
             String userDefinition = scanner.nextLine().trim();
-            log.appendLog(userDefinition + "\n");
+            log.appendLog(userDefinition);
 
             // check answer
             // correct
             if (userDefinition.equals(flashcards.getFlashcardDefinition(terms[randomTerm]))) {
-                System.out.println("Correct!");
-                log.appendLog("Correct!\n");
+                log.appendLogAndPrintToConsole("Correct!\n");
             }
             // wrong but definition is in DB
             else if (flashcards.isDefinitionExist(userDefinition)) {
                 String goodTerm = flashcards.getTermToDefinition(userDefinition);
                 flashcards.addFlashcardScore(terms[randomTerm]);
-                System.out.println("Wrong. The right answer is \"" +
-                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"" +
-                        ", but your definition is correct for \"" + goodTerm + "\".");
-                log.appendLog("Wrong. The right answer is \"" +
+                log.appendLogAndPrintToConsole("Wrong. The right answer is \"" +
                         flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"" +
                         ", but your definition is correct for \"" + goodTerm + "\".\n");
             }
             // wrong definition isn't in DB
             else {
                 flashcards.addFlashcardScore(terms[randomTerm]);
-                System.out.println("Wrong. The right answer is \"" +
-                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"");
-                log.appendLog("Wrong. The right answer is \"" +
-                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"\n");
+                log.appendLogAndPrintToConsole("Wrong. The right answer is \"" +
+                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\".\n");
             }
         }
     }

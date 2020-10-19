@@ -30,10 +30,12 @@ The card:
 > 2
 "Print the definition of "France":
 	> France
-#Wrong. The right answer is "Paris"
+$Wrong. The right answer is "Paris".
+
 "Print the definition of "France":
 > ??
-#Wrong. The right answer is "Paris"
+$Wrong. The right answer is "Paris".
+
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
 >The hardest card is "France". You have 2 errors answering it.
@@ -59,12 +61,14 @@ The card:
 > ask
 How many times to ask?
 > 2
-"Print the definition of "France":
-> ??
-#Wrong. The right answer is "Paris"
 "Print the definition of "Russia":
 > ??
-$Wrong. The right answer is "Moscow"
+%Wrong. The right answer is "Moscow".
+
+"Print the definition of "France":
+> ??
+$Wrong. The right answer is "Paris".
+
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
 JThe hardest cards are "France", "Russia". You have 1 errors answering it.
@@ -73,12 +77,14 @@ The card:
 > ask
 How many times to ask?
 > 2
-"Print the definition of "Russia":
-> ??
-$Wrong. The right answer is "Moscow"
 "Print the definition of "France":
 > ??
-#Wrong. The right answer is "Paris"
+$Wrong. The right answer is "Paris".
+
+"Print the definition of "Russia":
+> ??
+%Wrong. The right answer is "Moscow".
+
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
 JThe hardest cards are "France", "Russia". You have 2 errors answering it.
@@ -89,24 +95,28 @@ The card:
 > 2
 "Print the definition of "France":
 > ??
-#Wrong. The right answer is "Paris"
-"Print the definition of "France":
+$Wrong. The right answer is "Paris".
+
+"Print the definition of "Russia":
 > ??
-#Wrong. The right answer is "Paris"
+%Wrong. The right answer is "Moscow".
+
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
->The hardest card is "France". You have 4 errors answering it.
+JThe hardest cards are "France", "Russia". You have 3 errors answering it.
 
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > ask
 How many times to ask?
 > 2
+"Print the definition of "France":
+> ??
+$Wrong. The right answer is "Paris".
+
 "Print the definition of "Russia":
 > ??
-$Wrong. The right answer is "Moscow"
-"Print the definition of "Russia":
-> ??
-$Wrong. The right answer is "Moscow"
+%Wrong. The right answer is "Moscow".
+
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
 JThe hardest cards are "France", "Russia". You have 4 errors answering it.
@@ -117,13 +127,15 @@ The card:
 > 2
 "Print the definition of "Russia":
 > ??
-$Wrong. The right answer is "Moscow"
-"Print the definition of "France":
+%Wrong. The right answer is "Moscow".
+
+"Print the definition of "Russia":
 > ??
-#Wrong. The right answer is "Paris"
+%Wrong. The right answer is "Moscow".
+
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-JThe hardest cards are "France", "Russia". You have 5 errors answering it.
+>The hardest card is "Russia". You have 6 errors answering it.
 
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 	> export
@@ -161,10 +173,12 @@ The card:
 > 2
 "Print the definition of "France":
 > ??
-0Wrong. The right answer is "UpdateMeFromImport"
+1Wrong. The right answer is "UpdateMeFromImport".
+
 "Print the definition of "France":
 > ??
-0Wrong. The right answer is "UpdateMeFromImport"
+1Wrong. The right answer is "UpdateMeFromImport".
+
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 	> import
 File name:
@@ -173,7 +187,7 @@ The card:
 
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-JThe hardest cards are "France", "Russia". You have 5 errors answering it.
+>The hardest card is "Russia". You have 6 errors answering it.
 
 [Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 	> remove

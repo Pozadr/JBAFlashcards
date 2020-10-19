@@ -7,9 +7,16 @@ import java.io.PrintWriter;
 public class Log {
     private StringBuilder logSb = new StringBuilder();
 
-    public void appendLog(String text) {
-        logSb.append(text);
+    public void appendLogAndPrintToConsole(String text) {
+        System.out.println(text);
+        logSb.append(text).append("\n");
     }
+
+
+    public void appendLog(String text) {
+        logSb.append(text).append("\n");
+    }
+
 
     public void writeLogToFile(String path) {
         File file = new File(path);
