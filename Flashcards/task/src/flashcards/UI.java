@@ -1,8 +1,5 @@
 package flashcards;
 
-import com.sun.source.util.SimpleTreeVisitor;
-
-import java.io.File;
 import java.util.Random;
 import java.util.Scanner;
 
