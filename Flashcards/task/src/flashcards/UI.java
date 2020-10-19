@@ -1,7 +1,7 @@
 package flashcards;
 
-import java.util.Random;
-import java.util.Scanner;
+import javax.swing.*;
+import java.util.*;
 
 public class UI {
     private final Scanner scanner = new Scanner(System.in);
@@ -47,11 +47,11 @@ public class UI {
                     break;
                 }
                 case "hardest card": {
-                    System.out.println("hardest card");
+                    printHardestCards();
                     break;
                 }
                 case "reset stats": {
-                    System.out.println("reset stats");
+                    resetStats();
                     break;
                 }
                 default:
@@ -84,27 +84,30 @@ public class UI {
             return;
         }
 
-        flashcards.addFlashcard(term, definition);
+        flashcards.addFlashcardUser(term, definition);
         System.out.println("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n");
         log.appendLog("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n\n");
     }
 
     private void removeFlashcard() {
         System.out.println("The card:");
+        log.appendLog("The card:\n");
         String term = scanner.nextLine().trim();
+        log.appendLog(term + "\n");
         if (flashcards.isTermExist(term)) {
             flashcards.removeFlashcard(term);
             System.out.println("The card has been removed.\n");
+            log.appendLog("The card has been removed.\n\n");
         } else {
             System.out.println("Can't remove \"" + term + "\": there is no such card.\n");
+            log.appendLog("Can't remove \"" + term + "\": there is no such card.\n\n");
         }
     }
 
     private void importFlashcards() {
         System.out.println("File name:");
         String pathToFile = scanner.nextLine().trim();
-        flashcards.readFlashcardsFromFileDB(FileFlashcards
-                .readFlashcardsFromFile(pathToFile)); // "./Flashcards/task/DB_Flashcards/" +
+        FileFlashcards.readFlashcardsFromFile(pathToFile, flashcards); // "./Flashcards/task/DB_Flashcards/" +
     }
 
     private void exportFlashcards() {
@@ -122,6 +125,44 @@ public class UI {
         log.writeLogToFile(pathToFile);
 
     }
+
+    private void printHardestCards() {
+        try {
+            HashMap<String, Integer> hardestCards = flashcards.getHardestCards(); // throws NoSuchElementException
+
+            StringBuilder message = new StringBuilder();
+            int sizeOfSet = hardestCards.keySet().size();
+            int highestScore = 0;
+
+            for (String term : hardestCards.keySet()) {
+                if(sizeOfSet > 1) {
+                    message.append("\"").append(term).append("\"").append(", ");
+                } else {
+                    message.append("\"").append(term).append("\"").append(". ");
+                }
+                highestScore = hardestCards.get(term);
+                sizeOfSet--;
+            }
+            if (hardestCards.size() == 1){
+                System.out.println("The hardest card is " + message + "You have " + highestScore +
+                        " errors answering it.\n");
+            } else {
+                System.out.println("The hardest cards are " + message + "You have " + highestScore +
+                        " errors answering it.\n");
+
+            }
+
+        } catch (NoSuchElementException | NullPointerException e) {
+            System.out.println("There are no cards with errors.\n");
+        }
+
+    }
+
+    private void resetStats() {
+        flashcards.resetStats();
+        System.out.println("Card statistics have been reset.\n");
+    }
+
 
     private void askUser() {
         System.out.println("How many times to ask?");
@@ -141,14 +182,23 @@ public class UI {
             int randomTerm = random.nextInt(terms.length); // draw the random term
             System.out.println("Print the definition of \"" + terms[randomTerm] + "\":");
             String userDefinition = scanner.nextLine().trim();
+
+            // check answer
+            // correct
             if (userDefinition.equals(flashcards.getFlashcardDefinition(terms[randomTerm]))) {
                 System.out.println("Correct!");
-            } else if (flashcards.isDefinitionExist(userDefinition)) {
+            }
+            // wrong but definition is in DB
+            else if (flashcards.isDefinitionExist(userDefinition)) {
                 String goodTerm = flashcards.getTermToDefinition(userDefinition);
+                flashcards.addFlashcardScore(terms[randomTerm]);
                 System.out.println("Wrong. The right answer is \"" +
                         flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"" +
                         ", but your definition is correct for \"" + goodTerm + "\".");
-            } else {
+            }
+            // wrong definition isn't in DB
+            else {
+                flashcards.addFlashcardScore(terms[randomTerm]);
                 System.out.println("Wrong. The right answer is \"" +
                         flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"");
             }

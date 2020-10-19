@@ -1,15 +1,13 @@
 package flashcards;
 
 import java.io.*;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class FileFlashcards {
 
-    public static Map<String, String> readFlashcardsFromFile(String path) {
+    public static void readFlashcardsFromFile(String path, Flashcards flashcards) {
         Scanner scanner;
-        Map<String, String> flashcardsFromFile = new HashMap<>();
         File file = new File(path);
 
         try {
@@ -20,13 +18,13 @@ public class FileFlashcards {
                 lineCounter++;
                 String term = line[0];
                 String definition = line[1];
-                flashcardsFromFile.put(term, definition);
+                Integer score = Integer.parseInt(line[2]);
+                flashcards.addFlashcardFromFile(term, definition, score);
             }
             System.out.println(lineCounter + " cards have been loaded.\n");
         } catch (FileNotFoundException e) {
             System.out.println("File not found.\n");
         }
-        return flashcardsFromFile;
     }
 
     public static void writeFlashcardsToFile(String path, Flashcards flashcards) {
@@ -35,7 +33,10 @@ public class FileFlashcards {
 
         try (PrintWriter printWriter = new PrintWriter(file)) {
             for(String term : flashcards.getFlashcardsTerms()) {
-                printWriter.printf("%s:%s\n", term, flashcards.getFlashcardDefinition(term));
+                printWriter.printf("%s:%s:%s\n",
+                        term,
+                        flashcards.getFlashcardDefinition(term),
+                        flashcards.getFlashcardScore(term));
                 lineCounter++;
             }
             System.out.println(lineCounter + " cards have been saved.\n");
