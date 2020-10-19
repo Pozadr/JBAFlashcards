@@ -106,15 +106,24 @@ public class UI {
 
     private void importFlashcards() {
         System.out.println("File name:");
+        log.appendLog("File name:\n");
         String pathToFile = scanner.nextLine().trim();
-        FileFlashcards.readFlashcardsFromFile(pathToFile, flashcards); // "./Flashcards/task/DB_Flashcards/" +
+        log.appendLog(pathToFile + "\n");
+        int lineCounter =FileFlashcards.readFlashcardsFromFile(pathToFile, flashcards); // "./Flashcards/task/DB_Flashcards/" +
+        System.out.println(lineCounter + " cards have been loaded.\n");
+        log.appendLog(lineCounter + " cards have been loaded.\n\n");
+
     }
 
     private void exportFlashcards() {
         System.out.println("File name:");
         log.appendLog("File name:\n");
         String pathToFile = scanner.nextLine().trim();
-        FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
+        log.appendLog(pathToFile + "\n");
+        int lineCounter = FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
+        System.out.println(lineCounter + " cards have been saved.\n");
+        log.appendLog(lineCounter + " cards have been saved.\n\n");
+
     }
 
     private void saveLog() {
@@ -146,14 +155,19 @@ public class UI {
             if (hardestCards.size() == 1){
                 System.out.println("The hardest card is " + message + "You have " + highestScore +
                         " errors answering it.\n");
+                log.appendLog("The hardest card is " + message + "You have " + highestScore +
+                        " errors answering it.\n\n");
             } else {
                 System.out.println("The hardest cards are " + message + "You have " + highestScore +
                         " errors answering it.\n");
+                log.appendLog("The hardest cards are " + message + "You have " + highestScore +
+                        " errors answering it.\n\n");
 
             }
 
         } catch (NoSuchElementException | NullPointerException e) {
             System.out.println("There are no cards with errors.\n");
+            log.appendLog("There are no cards with errors.\n\n");
         }
 
     }
@@ -161,11 +175,13 @@ public class UI {
     private void resetStats() {
         flashcards.resetStats();
         System.out.println("Card statistics have been reset.\n");
+        log.appendLog("Card statistics have been reset.\n\n");
     }
 
 
     private void askUser() {
         System.out.println("How many times to ask?");
+        log.appendLog("How many times to ask?\n");
         int howManyQuestions;
         try {  // input validation
             howManyQuestions = Integer.parseInt(scanner.nextLine().trim());
@@ -173,6 +189,7 @@ public class UI {
             System.out.println("Error: " + e.getMessage().toLowerCase());
             return;
         }
+        log.appendLog(howManyQuestions + "\n");
 
         // terms to String[] to use them with Random
         String[] terms = flashcards.getFlashcardsTermsArray();
@@ -181,12 +198,15 @@ public class UI {
         for (int i = 0; i < howManyQuestions; i++) {
             int randomTerm = random.nextInt(terms.length); // draw the random term
             System.out.println("Print the definition of \"" + terms[randomTerm] + "\":");
+            log.appendLog("Print the definition of \"" + terms[randomTerm] + "\":\n");
             String userDefinition = scanner.nextLine().trim();
+            log.appendLog(userDefinition + "\n");
 
             // check answer
             // correct
             if (userDefinition.equals(flashcards.getFlashcardDefinition(terms[randomTerm]))) {
                 System.out.println("Correct!");
+                log.appendLog("Correct!\n");
             }
             // wrong but definition is in DB
             else if (flashcards.isDefinitionExist(userDefinition)) {
@@ -195,12 +215,17 @@ public class UI {
                 System.out.println("Wrong. The right answer is \"" +
                         flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"" +
                         ", but your definition is correct for \"" + goodTerm + "\".");
+                log.appendLog("Wrong. The right answer is \"" +
+                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"" +
+                        ", but your definition is correct for \"" + goodTerm + "\".\n");
             }
             // wrong definition isn't in DB
             else {
                 flashcards.addFlashcardScore(terms[randomTerm]);
                 System.out.println("Wrong. The right answer is \"" +
                         flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"");
+                log.appendLog("Wrong. The right answer is \"" +
+                        flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"\n");
             }
         }
     }

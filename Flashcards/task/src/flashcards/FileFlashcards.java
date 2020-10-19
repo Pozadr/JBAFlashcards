@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class FileFlashcards {
 
-    public static void readFlashcardsFromFile(String path, Flashcards flashcards) {
+    public static int readFlashcardsFromFile(String path, Flashcards flashcards) {
         Scanner scanner;
         File file = new File(path);
+        int lineCounter = 0;
 
         try {
             scanner = new Scanner(file); // it throws FileNotFoundException (checked)
-            int lineCounter = 0;
             while (scanner.hasNext()) {
                 String[] line = scanner.nextLine().trim().split(":");
                 lineCounter++;
@@ -21,13 +21,13 @@ public class FileFlashcards {
                 Integer score = Integer.parseInt(line[2]);
                 flashcards.addFlashcardFromFile(term, definition, score);
             }
-            System.out.println(lineCounter + " cards have been loaded.\n");
         } catch (FileNotFoundException e) {
             System.out.println("File not found.\n");
         }
+        return lineCounter;
     }
 
-    public static void writeFlashcardsToFile(String path, Flashcards flashcards) {
+    public static int writeFlashcardsToFile(String path, Flashcards flashcards) {
         File file = new File(path);
         int lineCounter = 0;
 
@@ -39,10 +39,10 @@ public class FileFlashcards {
                         flashcards.getFlashcardScore(term));
                 lineCounter++;
             }
-            System.out.println(lineCounter + " cards have been saved.\n");
         } catch (IOException e) {
             System.out.println("An exception occurs: " + e.getMessage().toLowerCase() + "\n");
         }
+        return lineCounter;
     }
 
     private static void printFlashcardsFromFile(Map<String, String> flashcardsFromFile) {

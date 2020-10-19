@@ -1,204 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="FlashcardsTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-10-16T07:56:00" hostname="pozard-Lenovo-Y510P" time="0.277">
+<testsuite name="FlashcardsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-19T13:19:43" hostname="pozard-Lenovo-Y510P" time="0.419">
   <properties/>
-  <testcase name="start" classname="FlashcardsTest" time="0.277">
-    <failure message="java.lang.AssertionError: Wrong answer in test #2&#10;&#10;Your line&#10;`Wrong input try again!`&#10;should contain `There are no cards with errors` (ignoring case).&#10;&#10;Please find below the output of your program during this failed test.&#10;Note that the '&gt;' character indicates the beginning of the input line.&#10;&#10;---&#10;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; add&#10;The card:&#10;&gt; France&#10;The definition for card:&#10;&gt; Paris&#10;The pair (&quot;France&quot;:&quot;Paris&quot;) has been added.&#10;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; ask&#10;How many times to ask?&#10;&gt; 2&#10;Print the definition of &quot;France&quot;:&#10;&gt; France&#10;Wrong. The right answer is &quot;Paris&quot;&#10;Print the definition of &quot;France&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Paris&quot;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; reset stats&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; add&#10;The card:&#10;&gt; Russia&#10;The definition for card:&#10;&gt; Moscow&#10;The pair (&quot;Russia&quot;:&quot;Moscow&quot;) has been added.&#10;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; ask&#10;How many times to ask?&#10;&gt; 2&#10;Print the definition of &quot;Russia&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Moscow&quot;&#10;Print the definition of &quot;France&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Paris&quot;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; ask&#10;How many times to ask?&#10;&gt; 2&#10;Print the definition of &quot;Russia&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Moscow&quot;&#10;Print the definition of &quot;Russia&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Moscow&quot;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; ask&#10;How many times to ask?&#10;&gt; 2&#10;Print the definition of &quot;France&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Paris&quot;&#10;Print the definition of &quot;France&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Paris&quot;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; ask&#10;How many times to ask?&#10;&gt; 2&#10;Print the definition of &quot;Russia&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Moscow&quot;&#10;Print the definition of &quot;Russia&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Moscow&quot;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; ask&#10;How many times to ask?&#10;&gt; 2&#10;Print the definition of &quot;Russia&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Moscow&quot;&#10;Print the definition of &quot;Russia&quot;:&#10;&gt; ??&#10;Wrong. The right answer is &quot;Moscow&quot;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; hardest card&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; export&#10;File name:&#10;&gt; capitals.txt&#10;2 cards have been saved.&#10;&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; log&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; testLog.txt&#10;Wrong input try again!&#10;Input the action (add, remove, import, export, ask, exit):&#10;&gt; exit&#10;Bye bye!" type="java.lang.AssertionError">java.lang.AssertionError: Wrong answer in test #2
-
-Your line
-`Wrong input try again!`
-should contain `There are no cards with errors` (ignoring case).
-
-Please find below the output of your program during this failed test.
-Note that the '&gt;' character indicates the beginning of the input line.
-
----
-
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; add
-The card:
-&gt; France
-The definition for card:
-&gt; Paris
-The pair (&quot;France&quot;:&quot;Paris&quot;) has been added.
-
-Input the action (add, remove, import, export, ask, exit):
-&gt; ask
-How many times to ask?
-&gt; 2
-Print the definition of &quot;France&quot;:
-&gt; France
-Wrong. The right answer is &quot;Paris&quot;
-Print the definition of &quot;France&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Paris&quot;
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; reset stats
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; add
-The card:
-&gt; Russia
-The definition for card:
-&gt; Moscow
-The pair (&quot;Russia&quot;:&quot;Moscow&quot;) has been added.
-
-Input the action (add, remove, import, export, ask, exit):
-&gt; ask
-How many times to ask?
-&gt; 2
-Print the definition of &quot;Russia&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Moscow&quot;
-Print the definition of &quot;France&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Paris&quot;
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; ask
-How many times to ask?
-&gt; 2
-Print the definition of &quot;Russia&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Moscow&quot;
-Print the definition of &quot;Russia&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Moscow&quot;
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; ask
-How many times to ask?
-&gt; 2
-Print the definition of &quot;France&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Paris&quot;
-Print the definition of &quot;France&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Paris&quot;
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; ask
-How many times to ask?
-&gt; 2
-Print the definition of &quot;Russia&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Moscow&quot;
-Print the definition of &quot;Russia&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Moscow&quot;
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; ask
-How many times to ask?
-&gt; 2
-Print the definition of &quot;Russia&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Moscow&quot;
-Print the definition of &quot;Russia&quot;:
-&gt; ??
-Wrong. The right answer is &quot;Moscow&quot;
-Input the action (add, remove, import, export, ask, exit):
-&gt; hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; export
-File name:
-&gt; capitals.txt
-2 cards have been saved.
-
-Input the action (add, remove, import, export, ask, exit):
-&gt; log
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; testLog.txt
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-&gt; exit
-Bye bye!
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:103)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:119)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-</failure>
-  </testcase>
+  <testcase name="start" classname="FlashcardsTest" time="0.419"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > export
 File name:
 > capitals.txt
 0 cards have been saved.
 
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > exit
 Bye bye!
 ?[1;31m
 Start test 2?[0m
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+There are no cards with errors.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > add
 The card:
 > France
@@ -206,7 +27,7 @@ The definition for card:
 > Paris
 The pair ("France":"Paris") has been added.
 
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > ask
 How many times to ask?
 > 2
@@ -216,16 +37,19 @@ Wrong. The right answer is "Paris"
 Print the definition of "France":
 > ??
 Wrong. The right answer is "Paris"
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+The hardest card is "France". You have 2 errors answering it.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > reset stats
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+Card statistics have been reset.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+There are no cards with errors.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > add
 The card:
 > Russia
@@ -233,7 +57,21 @@ The definition for card:
 > Moscow
 The pair ("Russia":"Moscow") has been added.
 
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> ask
+How many times to ask?
+> 2
+Print the definition of "France":
+> ??
+Wrong. The right answer is "Paris"
+Print the definition of "Russia":
+> ??
+Wrong. The right answer is "Moscow"
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> hardest card
+The hardest cards are "France", "Russia". You have 1 errors answering it.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > ask
 How many times to ask?
 > 2
@@ -243,23 +81,11 @@ Wrong. The right answer is "Moscow"
 Print the definition of "France":
 > ??
 Wrong. The right answer is "Paris"
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
-> ask
-How many times to ask?
-> 2
-Print the definition of "Russia":
-> ??
-Wrong. The right answer is "Moscow"
-Print the definition of "Russia":
-> ??
-Wrong. The right answer is "Moscow"
-Input the action (add, remove, import, export, ask, exit):
-> hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+The hardest cards are "France", "Russia". You have 2 errors answering it.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > ask
 How many times to ask?
 > 2
@@ -269,10 +95,11 @@ Wrong. The right answer is "Paris"
 Print the definition of "France":
 > ??
 Wrong. The right answer is "Paris"
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+The hardest card is "France". You have 4 errors answering it.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > ask
 How many times to ask?
 > 2
@@ -282,35 +109,90 @@ Wrong. The right answer is "Moscow"
 Print the definition of "Russia":
 > ??
 Wrong. The right answer is "Moscow"
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+The hardest cards are "France", "Russia". You have 4 errors answering it.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > ask
 How many times to ask?
 > 2
 Print the definition of "Russia":
 > ??
 Wrong. The right answer is "Moscow"
-Print the definition of "Russia":
+Print the definition of "France":
 > ??
-Wrong. The right answer is "Moscow"
-Input the action (add, remove, import, export, ask, exit):
+Wrong. The right answer is "Paris"
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > hardest card
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+The hardest cards are "France", "Russia". You have 5 errors answering it.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > export
 File name:
 > capitals.txt
 2 cards have been saved.
 
-Input the action (add, remove, import, export, ask, exit):
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > log
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+File name:
 > testLog.txt
-Wrong input try again!
-Input the action (add, remove, import, export, ask, exit):
+The log has been saved.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> exit
+Bye bye!
+?[1;31m
+Start test 3?[0m
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> hardest card
+There are no cards with errors.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> add
+The card:
+> France
+The definition for card:
+> UpdateMeFromImport
+The pair ("France":"UpdateMeFromImport") has been added.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> ask
+How many times to ask?
+> 2
+Print the definition of "France":
+> ??
+Wrong. The right answer is "UpdateMeFromImport"
+Print the definition of "France":
+> ??
+Wrong. The right answer is "UpdateMeFromImport"
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> import
+File name:
+> capitals.txt
+2 cards have been loaded.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> hardest card
+The hardest cards are "France", "Russia". You have 5 errors answering it.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> remove
+The card:
+> France
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> remove
+The card:
+> Russia
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+> hardest card
+There are no cards with errors.
+
+Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
 > exit
 Bye bye!
 ]]></system-out>

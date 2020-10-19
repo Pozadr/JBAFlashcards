@@ -1,3 +1,2 @@
-France:Paris:10
-Russia:Moscow:10
-Poland:Warsaw:10
+France:Paris:5
+Russia:Moscow:5

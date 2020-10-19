@@ -544,11 +544,6 @@ files:
         }
     }
   learner_created: true
-- name: capitals.txt
-  visible: true
-  text: |
-    Great Britain:London
-  learner_created: true
 - name: DB_Flashcards/test.txt
   visible: true
   learner_created: true
@@ -776,138 +771,13 @@ files:
 - name: src/flashcards/Log.java
   visible: true
   learner_created: true
+- name: testLog.txt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/44/stages/237/implement
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #2
-
-    Your line
-    `Wrong input try again!`
-    should contain `There are no cards with errors` (ignoring case).
-
-    Please find below the output of your program during this failed test.
-    Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
-
-    ---
-
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; add
-    The card:
-    &gt; France
-    The definition for card:
-    &gt; Paris
-    The pair (&quot;France&quot;:&quot;Paris&quot;) has been added.
-
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; ask
-    How many times to ask?
-    &gt; 2
-    Print the definition of &quot;France&quot;:
-    &gt; France
-    Wrong. The right answer is &quot;Paris&quot;
-    Print the definition of &quot;France&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Paris&quot;
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; reset stats
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; add
-    The card:
-    &gt; Russia
-    The definition for card:
-    &gt; Moscow
-    The pair (&quot;Russia&quot;:&quot;Moscow&quot;) has been added.
-
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; ask
-    How many times to ask?
-    &gt; 2
-    Print the definition of &quot;Russia&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Moscow&quot;
-    Print the definition of &quot;France&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Paris&quot;
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; ask
-    How many times to ask?
-    &gt; 2
-    Print the definition of &quot;Russia&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Moscow&quot;
-    Print the definition of &quot;Russia&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Moscow&quot;
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; ask
-    How many times to ask?
-    &gt; 2
-    Print the definition of &quot;France&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Paris&quot;
-    Print the definition of &quot;France&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Paris&quot;
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; ask
-    How many times to ask?
-    &gt; 2
-    Print the definition of &quot;Russia&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Moscow&quot;
-    Print the definition of &quot;Russia&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Moscow&quot;
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; ask
-    How many times to ask?
-    &gt; 2
-    Print the definition of &quot;Russia&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Moscow&quot;
-    Print the definition of &quot;Russia&quot;:
-    &gt; ??
-    Wrong. The right answer is &quot;Moscow&quot;
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; hardest card
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; export
-    File name:
-    &gt; capitals.txt
-    2 cards have been saved.
-
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; log
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; testLog.txt
-    Wrong input try again!
-    Input the action (add, remove, import, export, ask, exit):
-    &gt; exit
-    Bye bye!
-  time: Fri, 16 Oct 2020 07:56:01 UTC
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/44/stages/237/implement">JetBrains
+    Academy</a>
+  time: Mon, 19 Oct 2020 13:19:44 UTC
 record: 6
