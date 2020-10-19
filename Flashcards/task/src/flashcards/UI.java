@@ -61,6 +61,7 @@ public class UI {
         } while (!userInput.equals("exit"));
     }
 
+
     private void addFlashcard() {
         // Term
         System.out.println("The card:");
@@ -89,6 +90,7 @@ public class UI {
         log.appendLog("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n\n");
     }
 
+
     private void removeFlashcard() {
         System.out.println("The card:");
         log.appendLog("The card:\n");
@@ -104,6 +106,7 @@ public class UI {
         }
     }
 
+
     private void importFlashcards() {
         System.out.println("File name:");
         log.appendLog("File name:\n");
@@ -114,6 +117,7 @@ public class UI {
         log.appendLog(lineCounter + " cards have been loaded.\n\n");
 
     }
+
 
     private void exportFlashcards() {
         System.out.println("File name:");
@@ -126,6 +130,7 @@ public class UI {
 
     }
 
+
     private void saveLog() {
         System.out.println("File name:");
         log.appendLog("File name:\n");
@@ -134,6 +139,7 @@ public class UI {
         log.writeLogToFile(pathToFile);
 
     }
+
 
     private void printHardestCards() {
         try {
@@ -171,6 +177,7 @@ public class UI {
         }
 
     }
+
 
     private void resetStats() {
         flashcards.resetStats();

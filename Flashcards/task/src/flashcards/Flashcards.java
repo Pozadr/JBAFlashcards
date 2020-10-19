@@ -6,28 +6,34 @@ public class Flashcards {
     private final Map<String, String> flashcards = new HashMap<>();
     private final Map<String, Integer> hardestCards = new HashMap<>();
 
+
     public void addFlashcardUser(String term, String definition) {
         flashcards.put(term, definition);
         hardestCards.put(term, 0);
     }
+
 
     public void addFlashcardFromFile(String term, String definition, Integer score) {
         flashcards.put(term, definition);
         hardestCards.put(term, score);
     }
 
+
     public void removeFlashcard(String term) {
         flashcards.remove(term);
         hardestCards.put(term, 0);
     }
 
+
     public boolean isTermExist(String term) {
         return flashcards.containsKey(term);
     }
 
+
     public boolean isDefinitionExist(String definition) {
         return flashcards.containsValue(definition);
     }
+
 
     public String getTermToDefinition(String definition) {
         if (isDefinitionExist(definition)) {
@@ -41,13 +47,16 @@ public class Flashcards {
         return "";
     }
 
+
     public Set<String> getFlashcardsTerms() {
         return new HashSet<>(flashcards.keySet());
     }
 
+
     public Set<String> getHardestCardsTerms() {
         return new HashSet<>(hardestCards.keySet());
     }
+
 
     public String[] getFlashcardsTermsArray() {
         String[] terms = new String[flashcards.size()];
@@ -59,9 +68,12 @@ public class Flashcards {
         return terms;
     }
 
+
     public Set<String> getFlashcardsDefinitions() {
         return new HashSet<>(flashcards.values());
     }
+
+
     public Set<Integer> getHardestCardsScores() {
         return new HashSet<>(hardestCards.values());
     }
@@ -71,17 +83,21 @@ public class Flashcards {
         return flashcards.get(term);
     }
 
+
     public Integer getHardestCardDefinition(String term) {
         return hardestCards.get(term);
     }
+
 
     public Integer getFlashcardScore(String term) {
         return hardestCards.get(term);
     }
 
+
     public void addFlashcardScore(String term) {
         hardestCards.put(term, (hardestCards.get(term) + 1));
     }
+
 
     public HashMap<String, Integer> getHardestCards() throws NoSuchElementException {
         HashMap<String, Integer> hardestCards = new HashMap();
@@ -99,17 +115,20 @@ public class Flashcards {
         return hardestCards;
     }
 
+
     public void resetStats() {
         for (String term : getHardestCardsTerms()) {
             hardestCards.put(term, 0);
         }
     }
 
+
     // ------------------------ TEST ------------------------
     public void printFlashcards() {
         System.out.println("Current loaded flashcards:");
         flashcards.forEach((term, definition) -> System.out.println(term + ": " + definition));
     }
+
 
     public void printHardestCards() {
         System.out.println("The hardest cards are:");

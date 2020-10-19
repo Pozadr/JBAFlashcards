@@ -27,6 +27,7 @@ public class FileFlashcards {
         return lineCounter;
     }
 
+
     public static int writeFlashcardsToFile(String path, Flashcards flashcards) {
         File file = new File(path);
         int lineCounter = 0;
@@ -44,6 +45,7 @@ public class FileFlashcards {
         }
         return lineCounter;
     }
+
 
     private static void printFlashcardsFromFile(Map<String, String> flashcardsFromFile) {
         System.out.println("Flashcards from file:");
