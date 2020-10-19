@@ -5,14 +5,17 @@ import java.util.Scanner;
 
 public class UI {
     private final Scanner scanner = new Scanner(System.in);
-
+    private final Log log = new Log();
     Flashcards flashcards = new Flashcards();
 
 
     public void menuLoop() {
         String userInput;
         do {
-            System.out.println("Input the action (add, remove, import, export, ask, exit):");
+            System.out.println("Input the action (add, remove, import, export, ask," +
+                    " exit, log, hardest card, reset stats):");
+            log.appendLog("Input the action (add, remove, import, export, ask," +
+                    " exit, log, hardest card, reset stats):\n");
             userInput = scanner.nextLine().trim();
             switch (userInput) {
                 case "add": {
@@ -39,8 +42,21 @@ public class UI {
                     System.out.println("Bye bye!");
                     break;
                 }
+                case "log": {
+                    saveLog();
+                    break;
+                }
+                case "hardest card": {
+                    System.out.println("hardest card");
+                    break;
+                }
+                case "reset stats": {
+                    System.out.println("reset stats");
+                    break;
+                }
                 default:
                     System.out.println("Wrong input try again!");
+                    log.appendLog("Wrong input try again!\n");
             }
         } while (!userInput.equals("exit"));
     }
@@ -48,22 +64,29 @@ public class UI {
     private void addFlashcard() {
         // Term
         System.out.println("The card:");
+        log.appendLog("The card:\n");
         String term = scanner.nextLine().trim();
+        log.appendLog(term + "\n");
         if (flashcards.isTermExist(term)) {
             System.out.println("The card \"" + term + "\" already exists.\n");
+            log.appendLog("The card \"" + term + "\" already exists.\n\n");
             return;
         }
 
         // Definition
         System.out.println("The definition for card:");
+        log.appendLog("The definition for card:\n");
         String definition = scanner.nextLine().trim();
+        log.appendLog(definition + "\n");
         if (flashcards.isDefinitionExist(definition)) {
             System.out.println("The definition \"" + definition + "\" already exists.\n");
+            log.appendLog("The definition \"" + definition + "\" already exists.\n\n");
             return;
         }
 
         flashcards.addFlashcard(term, definition);
         System.out.println("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n");
+        log.appendLog("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n\n");
     }
 
     private void removeFlashcard() {
@@ -86,8 +109,17 @@ public class UI {
 
     private void exportFlashcards() {
         System.out.println("File name:");
+        log.appendLog("File name:\n");
         String pathToFile = scanner.nextLine().trim();
         FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
+    }
+
+    private void saveLog() {
+        System.out.println("File name:");
+        log.appendLog("File name:\n");
+        String pathToFile = scanner.nextLine().trim();
+        log.appendLog(pathToFile + "\n");
+        log.writeLogToFile(pathToFile);
 
     }
 
@@ -121,10 +153,9 @@ public class UI {
                         flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"");
             }
         }
-
-
-
     }
+
+
 
 
 

@@ -773,6 +773,9 @@ files:
     Switzerland:Bern
     England:London
   learner_created: true
+- name: src/flashcards/Log.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/44/stages/237/implement
 status: Failed
 feedback:
