@@ -11,6 +11,9 @@ public class UI {
     private boolean exitExportEnabled = false;
     private String exitExportPath = "";
 
+    /**
+     * @param args - command-line arguments from main
+     */
     public void manageMainArgs(String[] args) {
         for (int i = 0; i < args.length; i = i + 2) {
             switch (args[i]) {
