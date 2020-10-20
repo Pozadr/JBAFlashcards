@@ -7,6 +7,23 @@ public class UI {
     private final Log log = new Log();
     Flashcards flashcards = new Flashcards();
 
+    public void manageMainArgs(String args[]) {
+        for (int i = 0; i < args.length; i = i + 2) {
+            switch (args[i]) {
+                case "-import": {
+                    importFlashcards(args[i + 1]);
+                    break;
+                }
+                case "-export": {
+                    //key = Integer.parseInt(args[i + 1]);
+                    break;
+                }
+                default: {
+                    break;
+                }
+            }
+        }
+    }
 
     public void menuLoop() {
         String userInput;
@@ -104,6 +121,11 @@ public class UI {
         log.appendLogAndPrintToConsole(lineCounter + " cards have been loaded.\n");
     }
 
+    private void importFlashcards(String pathToFile) {
+        int lineCounter =FileFlashcards.readFlashcardsFromFile(pathToFile, flashcards); // "./Flashcards/task/DB_Flashcards/" +
+        log.appendLogAndPrintToConsole(lineCounter + " cards have been loaded.\n");
+    }
+
 
     private void exportFlashcards() {
         log.appendLogAndPrintToConsole("File name:");
@@ -112,6 +134,12 @@ public class UI {
         int lineCounter = FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
         log.appendLogAndPrintToConsole(lineCounter + " cards have been saved.\n");
     }
+
+    private void exportFlashcards(String pathToFile) {
+        int lineCounter = FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
+        log.appendLogAndPrintToConsole(lineCounter + " cards have been saved.\n");
+    }
+
 
 
     private void saveLog() {

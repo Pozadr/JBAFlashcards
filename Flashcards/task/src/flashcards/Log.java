@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Log {
-    private StringBuilder logSb = new StringBuilder();
+    private final StringBuilder logSb = new StringBuilder();
 
     public void appendLogAndPrintToConsole(String text) {
         System.out.println(text);

@@ -473,6 +473,635 @@ files:
         // just empty class, but not abstract so it can be run
     }
   learner_created: false
+- name: testLog.txt
+  visible: true
+  text: |
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    There are no cards with errors.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    add
+    The card:
+    France
+    The definition for card:
+    Paris
+    The pair ("France":"Paris") has been added.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    ask
+    How many times to ask?
+    2
+    Print the definition of "France":
+    France
+    Wrong. The right answer is "Paris".
+
+    Print the definition of "France":
+    ??
+    Wrong. The right answer is "Paris".
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    The hardest card is "France". You have 2 errors answering it.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    reset stats
+    Card statistics have been reset.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    There are no cards with errors.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    add
+    The card:
+    Russia
+    The definition for card:
+    Moscow
+    The pair ("Russia":"Moscow") has been added.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    ask
+    How many times to ask?
+    2
+    Print the definition of "Russia":
+    ??
+    Wrong. The right answer is "Moscow".
+
+    Print the definition of "France":
+    ??
+    Wrong. The right answer is "Paris".
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    The hardest cards are "France", "Russia". You have 1 errors answering it.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    ask
+    How many times to ask?
+    2
+    Print the definition of "France":
+    ??
+    Wrong. The right answer is "Paris".
+
+    Print the definition of "Russia":
+    ??
+    Wrong. The right answer is "Moscow".
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    The hardest cards are "France", "Russia". You have 2 errors answering it.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    ask
+    How many times to ask?
+    2
+    Print the definition of "France":
+    ??
+    Wrong. The right answer is "Paris".
+
+    Print the definition of "Russia":
+    ??
+    Wrong. The right answer is "Moscow".
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    The hardest cards are "France", "Russia". You have 3 errors answering it.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    ask
+    How many times to ask?
+    2
+    Print the definition of "France":
+    ??
+    Wrong. The right answer is "Paris".
+
+    Print the definition of "Russia":
+    ??
+    Wrong. The right answer is "Moscow".
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    The hardest cards are "France", "Russia". You have 4 errors answering it.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    ask
+    How many times to ask?
+    2
+    Print the definition of "Russia":
+    ??
+    Wrong. The right answer is "Moscow".
+
+    Print the definition of "Russia":
+    ??
+    Wrong. The right answer is "Moscow".
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    hardest card
+    The hardest card is "Russia". You have 6 errors answering it.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    export
+    File name:
+    capitals.txt
+    2 cards have been saved.
+
+    Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):
+    log
+    File name:
+    testLog.txt
+  learner_created: false
+- name: src/flashcards/Main.java
+  visible: true
+  text: |
+    package flashcards;
+
+    public class Main {
+        public static void main(String[] args) {
+            UI userInterface = new UI();
+            userInterface.menuLoop();
+        }
+    }
+  learner_created: true
+- name: src/flashcards/Flashcards.java
+  visible: true
+  text: |
+    package flashcards;
+
+    import java.util.*;
+
+    public class Flashcards {
+        private final Map<String, String> flashcards = new HashMap<>();
+        private final Map<String, Integer> hardestCards = new HashMap<>();
+
+
+        public void addFlashcardUser(String term, String definition) {
+            flashcards.put(term, definition);
+            hardestCards.put(term, 0);
+        }
+
+
+        public void addFlashcardFromFile(String term, String definition, Integer score) {
+            flashcards.put(term, definition);
+            hardestCards.put(term, score);
+        }
+
+
+        public void removeFlashcard(String term) {
+            flashcards.remove(term);
+            hardestCards.put(term, 0);
+        }
+
+
+        public boolean isTermExist(String term) {
+            return flashcards.containsKey(term);
+        }
+
+
+        public boolean isDefinitionExist(String definition) {
+            return flashcards.containsValue(definition);
+        }
+
+
+        public String getTermToDefinition(String definition) {
+            if (isDefinitionExist(definition)) {
+                for (String term : getFlashcardsTerms()) {
+                    if (flashcards.get(term).equals(definition)) {
+                        return term;
+                    }
+                }
+            }
+            System.out.println( "Definition not exists in flashcards.");
+            return "";
+        }
+
+
+        public Set<String> getFlashcardsTerms() {
+            return new HashSet<>(flashcards.keySet());
+        }
+
+
+        public Set<String> getHardestCardsTerms() {
+            return new HashSet<>(hardestCards.keySet());
+        }
+
+
+        public String[] getFlashcardsTermsArray() {
+            String[] terms = new String[flashcards.size()];
+            int termIndex = 0;
+            for (String term : getFlashcardsTerms()) {
+                terms[termIndex] = term;
+                termIndex++;
+            }
+            return terms;
+        }
+
+
+        public Set<String> getFlashcardsDefinitions() {
+            return new HashSet<>(flashcards.values());
+        }
+
+
+        public Set<Integer> getHardestCardsScores() {
+            return new HashSet<>(hardestCards.values());
+        }
+
+
+        public String getFlashcardDefinition(String term) {
+            return flashcards.get(term);
+        }
+
+
+        public Integer getHardestCardDefinition(String term) {
+            return hardestCards.get(term);
+        }
+
+
+        public Integer getFlashcardScore(String term) {
+            return hardestCards.get(term);
+        }
+
+
+        public void addFlashcardScore(String term) {
+            hardestCards.put(term, (hardestCards.get(term) + 1));
+        }
+
+
+        public HashMap<String, Integer> getHardestCards() throws NoSuchElementException {
+            HashMap<String, Integer> hardestCards = new HashMap();
+            Integer max = Collections.max(getHardestCardsScores());
+            if (max == 0) {
+                return null;
+            }
+            //System.out.println("max: " + max);
+            for (String term : getHardestCardsTerms()) {
+                if (getHardestCardDefinition(term).equals(max)) {
+                    hardestCards.put(term, getHardestCardDefinition(term));
+                    //System.out.println("card:" + term + " score: " + getHardestCardDefinition(term));
+                }
+            }
+            return hardestCards;
+        }
+
+
+        public void resetStats() {
+            for (String term : getHardestCardsTerms()) {
+                hardestCards.put(term, 0);
+            }
+        }
+
+
+        // ------------------------ TEST ------------------------
+        public void printFlashcards() {
+            System.out.println("Current loaded flashcards:");
+            flashcards.forEach((term, definition) -> System.out.println(term + ": " + definition));
+        }
+
+
+        public void printHardestCards() {
+            System.out.println("The hardest cards are:");
+            hardestCards.forEach((term, value) -> System.out.println(term + ": " + value));
+        }
+
+
+    }
+  learner_created: true
+- name: DB_Flashcards/test.txt
+  visible: true
+  learner_created: true
+- name: capitalsNew.txt
+  visible: true
+  text: |
+    France:Paris
+  learner_created: true
+- name: src/flashcards/Log.java
+  visible: true
+  text: |
+    package flashcards;
+
+    import java.io.File;
+    import java.io.IOException;
+    import java.io.PrintWriter;
+
+    public class Log {
+        private StringBuilder logSb = new StringBuilder();
+
+        public void appendLogAndPrintToConsole(String text) {
+            System.out.println(text);
+            logSb.append(text).append("\n");
+        }
+
+
+        public void appendLog(String text) {
+            logSb.append(text).append("\n");
+        }
+
+
+        public void writeLogToFile(String path) {
+            File file = new File(path);
+            try (PrintWriter printWriter = new PrintWriter(file)) {
+                    printWriter.print(logSb);
+                System.out.println("The log has been saved.\n");
+            } catch (IOException e) {
+                System.out.println("An exception occurs: " + e.getMessage().toLowerCase() + "\n");
+            }
+        }
+    }
+  learner_created: true
+- name: src/flashcards/UI.java
+  visible: true
+  text: |
+    package flashcards;
+
+    import java.util.*;
+
+    public class UI {
+        private final Scanner scanner = new Scanner(System.in);
+        private final Log log = new Log();
+        Flashcards flashcards = new Flashcards();
+
+
+        public void menuLoop() {
+            String userInput;
+            do {
+                log.appendLogAndPrintToConsole("Input the action (add, remove, import, export, ask," +
+                        " exit, log, hardest card, reset stats):");
+                userInput = scanner.nextLine().trim();
+                log.appendLog(userInput);
+                switch (userInput) {
+                    case "add": {
+                        addFlashcard();
+                        break;
+                    }
+                    case "remove": {
+                        removeFlashcard();
+                        break;
+                    }
+                    case "import": {
+                        importFlashcards();
+                        break;
+                    }
+                    case "export": {
+                        exportFlashcards();
+                        break;
+                    }
+                    case "ask": {
+                        askUser();
+                        break;
+                    }
+                    case "exit": {
+                        log.appendLogAndPrintToConsole("Bye bye!");
+                        break;
+                    }
+                    case "log": {
+                        saveLog();
+                        break;
+                    }
+                    case "hardest card": {
+                        printHardestCards();
+                        break;
+                    }
+                    case "reset stats": {
+                        resetStats();
+                        break;
+                    }
+                    default:
+                        log.appendLogAndPrintToConsole("Wrong input try again!");
+                }
+            } while (!userInput.equals("exit"));
+        }
+
+
+        private void addFlashcard() {
+            // Term
+            log.appendLogAndPrintToConsole("The card:");
+            String term = scanner.nextLine().trim();
+            log.appendLog(term);
+            if (flashcards.isTermExist(term)) {
+                log.appendLogAndPrintToConsole("The card \"" + term + "\" already exists.\n");
+                return;
+            }
+
+            // Definition
+            log.appendLogAndPrintToConsole("The definition for card:");
+            String definition = scanner.nextLine().trim();
+            log.appendLog(definition);
+            if (flashcards.isDefinitionExist(definition)) {
+                log.appendLogAndPrintToConsole("The definition \"" + definition + "\" already exists.\n");
+                return;
+            }
+
+            flashcards.addFlashcardUser(term, definition);
+            log.appendLogAndPrintToConsole("The pair (\"" + term + "\":\"" + definition + "\") has been added.\n");
+        }
+
+
+        private void removeFlashcard() {
+            log.appendLogAndPrintToConsole("The card:");
+            String term = scanner.nextLine().trim();
+            log.appendLog(term);
+            if (flashcards.isTermExist(term)) {
+                flashcards.removeFlashcard(term);
+                log.appendLogAndPrintToConsole("The card has been removed.\n");
+            } else {
+                log.appendLogAndPrintToConsole("Can't remove \"" + term + "\": there is no such card.\n");
+            }
+        }
+
+
+        private void importFlashcards() {
+            log.appendLogAndPrintToConsole("File name:");
+            String pathToFile = scanner.nextLine().trim();
+            log.appendLog(pathToFile);
+            int lineCounter =FileFlashcards.readFlashcardsFromFile(pathToFile, flashcards); // "./Flashcards/task/DB_Flashcards/" +
+            log.appendLogAndPrintToConsole(lineCounter + " cards have been loaded.\n");
+        }
+
+
+        private void exportFlashcards() {
+            log.appendLogAndPrintToConsole("File name:");
+            String pathToFile = scanner.nextLine().trim();
+            log.appendLog(pathToFile);
+            int lineCounter = FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
+            log.appendLogAndPrintToConsole(lineCounter + " cards have been saved.\n");
+        }
+
+
+        private void saveLog() {
+            log.appendLogAndPrintToConsole("File name:");
+            String pathToFile = scanner.nextLine().trim();
+            log.appendLog(pathToFile);
+            log.writeLogToFile(pathToFile);
+
+        }
+
+
+        private void printHardestCards() {
+            try {
+                HashMap<String, Integer> hardestCards = flashcards.getHardestCards(); // throws NoSuchElementException
+
+                StringBuilder message = new StringBuilder();
+                int sizeOfSet = hardestCards.keySet().size();
+                int highestScore = 0;
+
+                for (String term : hardestCards.keySet()) {
+                    if(sizeOfSet > 1) {
+                        message.append("\"").append(term).append("\"").append(", ");
+                    } else {
+                        message.append("\"").append(term).append("\"").append(". ");
+                    }
+                    highestScore = hardestCards.get(term);
+                    sizeOfSet--;
+                }
+                if (hardestCards.size() == 1){
+                    log.appendLogAndPrintToConsole("The hardest card is " + message + "You have " + highestScore +
+                            " errors answering it.\n");
+                } else {
+                    log.appendLogAndPrintToConsole("The hardest cards are " + message + "You have " + highestScore +
+                            " errors answering it.\n");
+
+                }
+
+            } catch (NoSuchElementException | NullPointerException e) {
+                log.appendLogAndPrintToConsole("There are no cards with errors.\n");
+            }
+
+        }
+
+
+        private void resetStats() {
+            flashcards.resetStats();
+            log.appendLogAndPrintToConsole("Card statistics have been reset.\n");
+        }
+
+
+        private void askUser() {
+            log.appendLogAndPrintToConsole("How many times to ask?");
+            int howManyQuestions;
+            try {  // input validation
+                howManyQuestions = Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                log.appendLogAndPrintToConsole("Error: " + e.getMessage().toLowerCase());
+                return;
+            }
+            log.appendLog(Integer.toString(howManyQuestions));
+
+            // terms to String[] to use them with Random
+            String[] terms = flashcards.getFlashcardsTermsArray();
+
+            Random random = new Random();
+            for (int i = 0; i < howManyQuestions; i++) {
+                int randomTerm = random.nextInt(terms.length); // draw the random term
+                log.appendLogAndPrintToConsole("Print the definition of \"" + terms[randomTerm] + "\":");
+                String userDefinition = scanner.nextLine().trim();
+                log.appendLog(userDefinition);
+
+                // check answer
+                // correct
+                if (userDefinition.equals(flashcards.getFlashcardDefinition(terms[randomTerm]))) {
+                    log.appendLogAndPrintToConsole("Correct!\n");
+                }
+                // wrong but definition is in DB
+                else if (flashcards.isDefinitionExist(userDefinition)) {
+                    String goodTerm = flashcards.getTermToDefinition(userDefinition);
+                    flashcards.addFlashcardScore(terms[randomTerm]);
+                    log.appendLogAndPrintToConsole("Wrong. The right answer is \"" +
+                            flashcards.getFlashcardDefinition(terms[randomTerm]) + "\"" +
+                            ", but your definition is correct for \"" + goodTerm + "\".\n");
+                }
+                // wrong definition isn't in DB
+                else {
+                    flashcards.addFlashcardScore(terms[randomTerm]);
+                    log.appendLogAndPrintToConsole("Wrong. The right answer is \"" +
+                            flashcards.getFlashcardDefinition(terms[randomTerm]) + "\".\n");
+                }
+            }
+        }
+
+
+
+
+
+
+    }
+  learner_created: true
+- name: src/flashcards/FileFlashcards.java
+  visible: true
+  text: |
+    package flashcards;
+
+    import java.io.*;
+    import java.util.Map;
+    import java.util.Scanner;
+
+    public class FileFlashcards {
+
+        public static int readFlashcardsFromFile(String path, Flashcards flashcards) {
+            Scanner scanner;
+            File file = new File(path);
+            int lineCounter = 0;
+
+            try {
+                scanner = new Scanner(file); // it throws FileNotFoundException (checked)
+                while (scanner.hasNext()) {
+                    String[] line = scanner.nextLine().trim().split(":");
+                    lineCounter++;
+                    String term = line[0];
+                    String definition = line[1];
+                    Integer score = Integer.parseInt(line[2]);
+                    flashcards.addFlashcardFromFile(term, definition, score);
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found.\n");
+            }
+            return lineCounter;
+        }
+
+
+        public static int writeFlashcardsToFile(String path, Flashcards flashcards) {
+            File file = new File(path);
+            int lineCounter = 0;
+
+            try (PrintWriter printWriter = new PrintWriter(file)) {
+                for(String term : flashcards.getFlashcardsTerms()) {
+                    printWriter.printf("%s:%s:%s\n",
+                            term,
+                            flashcards.getFlashcardDefinition(term),
+                            flashcards.getFlashcardScore(term));
+                    lineCounter++;
+                }
+            } catch (IOException e) {
+                System.out.println("An exception occurs: " + e.getMessage().toLowerCase() + "\n");
+            }
+            return lineCounter;
+        }
+
+
+        private static void printFlashcardsFromFile(Map<String, String> flashcardsFromFile) {
+            System.out.println("Flashcards from file:");
+            flashcardsFromFile.forEach((term, definition) -> System.out.println(term + ":" + definition));
+        }
+
+
+
+
+
+    }
+  learner_created: true
+- name: DB_Flashcards/capitals.txt
+  visible: true
+  text: |-
+    France:Paris
+    Germany:Berlin
+    Poland:Warsaw
+    Slovakia:Bratislava
+    Czech Republic:Prague
+    Russia:Moscow
+    Croatia:Zagreb
+    Austria:Vienna
+    Switzerland:Bern
+    England:London
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/44/stages/238/implement
 status: Unchecked
 record: -1
