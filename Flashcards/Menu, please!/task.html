@@ -1,8 +1,8 @@
-<h2 style="text-align: center;">Description</h2>
+<h2 style="text-align: center;"> Description</h2>
 
 <p>Our users cannot create new flashcards all the time. It seems like a good idea to keep old but useful cards in storage so we can use them later. Let's try to do that!</p>
 
-<p>In this stage, you will improve the application's interactivity by having it ask the user for action and perform it. You will also provide additional functionality, allowing the user to store flashcards in files for future use.</p>
+<p>In this stage, you will improve the application's interactivity by having it ask the user for an action and perform it. Also, you will provide additional functionality, allowing you to store flashcards in files for future use.</p>
 
 <p>The program should support the following actions:</p>
 
@@ -15,9 +15,11 @@
 	<li>exit the program: <code class="java">exit</code></li>
 </ul>
 
-<p>You can store cards in a file in any format; tests do not check the content of the file, but they do check that the saved flashcards are loaded correctly.</p>
+<p>You can use any format of separating to store cards in a file; tests do not check the content of the file, but they do check that all the saved flashcards are loaded correctly.</p>
 
 <p>When you load flashcards from a file, you shouldn't erase the cards that aren't in the file. If the imported flashcard already exists, update its definition in the program memory. There won't be any conflict with definitions in the tests.</p>
+
+<p>You can use <a target="_blank" href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.random/-random/index.html" rel="noopener noreferrer nofollow">Random.nextInt(...)</a> to generate random numbers in your <code class="java">ask</code> action implementation.</p>
 
 <h2 style="text-align: center;">Objectives</h2>
 
@@ -30,13 +32,13 @@
 	<li><code class="java">remove</code> — ask the user for the term of the card they want to remove with the message <code class="java">Which card?</code>, and read the user's input from the next line. If a matching flashcard exists, remove it from the set and output the message <code class="java">The card has been removed.</code>. If there is no such flashcard in the set, output the message <code class="java">Can't remove "<em>card</em>": there is no such card.</code>, where <code class="java">"<em>card</em>"</code> is the user's input.</li>
 	<li><code class="java">import</code> — print the line <code class="java">File name:</code>, read the user's input from the next line, which is the file name, and import all the flashcards written to this file. If there is no file with such name, print the message <code class="java">File not found.</code>. After importing the cards, print the message <code class="java">n cards have been loaded.</code>, where <code class="java">n</code> is the number of cards in the file. When you load cards from a file, you shouldn't erase the cards that aren't in the file. If the imported card already exists, it should update the old one.</li>
 	<li><code class="java">export</code> — request the file name with the line <code class="java">File name:</code> and write all currently available flashcards into this file. Print the message <code class="java">n cards have been saved.</code>, where <code class="java">n</code> is the number of cards exported to the file.</li>
-	<li><code class="java">ask</code> — ask the user about the number of cards they want and then prompt them for definitions, like in the previous stage.</li>
+	<li><code class="java">ask</code> — ask the user about the number of cards they want to be asked about and then prompt them for definitions, like in the previous stage.</li>
 	<li><code class="java">exit</code> — print <code class="java">Bye bye!</code> and finish the program.</li>
 </ul>
 
 <h2 style="text-align: center;">Examples</h2>
 
-<p>The symbol <code class="java">&gt;</code> represents the user input. Notice that it's not the part of the input.</p>
+<p>The symbol <code class="java">&gt; </code> represents the user input. Note that it's not part of the input.</p>
 
 <p><strong>Example 1: </strong><em>the user removes an existing card and tries to remove a non-existent one.</em></p>
 
