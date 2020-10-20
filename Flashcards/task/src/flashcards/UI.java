@@ -1,13 +1,17 @@
 package flashcards;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class UI {
     private final Scanner scanner = new Scanner(System.in);
     private final Log log = new Log();
     Flashcards flashcards = new Flashcards();
+    private boolean exitExportEnabled = false;
+    private String exitExportPath = "";
 
-    public void manageMainArgs(String args[]) {
+    public void manageMainArgs(String[] args) {
         for (int i = 0; i < args.length; i = i + 2) {
             switch (args[i]) {
                 case "-import": {
@@ -15,7 +19,8 @@ public class UI {
                     break;
                 }
                 case "-export": {
-                    //key = Integer.parseInt(args[i + 1]);
+                    exitExportEnabled = true;
+                    exitExportPath = args[i + 1];
                     break;
                 }
                 default: {
@@ -55,6 +60,9 @@ public class UI {
                 }
                 case "exit": {
                     log.appendLogAndPrintToConsole("Bye bye!");
+                    if (exitExportEnabled) {
+                        exportFlashcards(exitExportPath);
+                    }
                     break;
                 }
                 case "log": {
@@ -139,7 +147,6 @@ public class UI {
         int lineCounter = FileFlashcards.writeFlashcardsToFile(pathToFile, flashcards); //"./Flashcards/task/DB_Flashcards/" +
         log.appendLogAndPrintToConsole(lineCounter + " cards have been saved.\n");
     }
-
 
 
     private void saveLog() {
